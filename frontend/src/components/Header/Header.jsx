@@ -23,6 +23,9 @@ const Header = () => {
     const handleRegister = () => {
         navigate('/register')
     }
+    const naviHome = () => {
+        navigate('/')
+    }
 
     const items = [
         {
@@ -126,7 +129,7 @@ const Header = () => {
                 </Col>
             </Row>
             <Row className='bot_header'>
-                <Col className='logo_left' span={10}>
+                <Col className='logo_left' onClick={naviHome} span={10}>
                     <img src='https://png.pngtree.com/png-vector/20230409/ourmid/pngtree-travel-logo-design-template-for-business-and-company-vector-png-image_6696146.png' className='logo' />
                     <span className='navbar-brand__text'>My Travels</span>
                 </Col>

@@ -10,7 +10,15 @@ const locationSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true
-    }
+    },
+    avatar: {
+        public_id: {
+            type: String,
+        },
+        url: {
+            type: String,
+        },
+    },
 });
 
 module.exports = mongoose.model('Location', locationSchema);

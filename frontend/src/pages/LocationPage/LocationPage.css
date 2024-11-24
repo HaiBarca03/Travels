@@ -1,0 +1,64 @@
+.container_local-wrapper {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.wrapper_card-local {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card_local {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.card-image_local {
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.card-title_local h2 {
+    margin: 10px 0 0 0;
+}
+
+.card-title_local {
+    height: 100%;
+    top: 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    width: 100%;
+    text-align: center;
+    transition: background 0.3s ease, padding 0.3s ease;
+}
+
+.card-title_local:hover {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px 0;
+}
+
+.card-title_local:hover .detail_count-local {
+    display: block;
+}
+
+.detail_count-local {
+    display: none;
+}
+
+.detail_count-local h4 {
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+}

@@ -7,13 +7,18 @@ import { useNavigate } from 'react-router-dom';
 const LoginPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { isLoading, error, isLoggedIn } = useSelector((state) => state.user);
+    const { isLoading, error, isLoggedIn, user } = useSelector((state) => state.user);
     const [email, setemail] = useState('');
     const [password, setPassword] = useState('');
 
     useEffect(() => {
         if (isLoggedIn) {
-            navigate('/');
+            if (user.role == 'admin') {
+                navigate('/admin');
+            } else {
+                navigate('/');
+            }
+            console.log('user.role', user.role)
         }
     }, [isLoggedIn, navigate]);
 

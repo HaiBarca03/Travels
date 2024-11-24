@@ -1,0 +1,38 @@
+.item_icon-search {
+    font-size: 19px;
+    padding-right: 10px;
+    color: #007bff;
+}
+
+.city-select {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.city-select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.city-select option {
+    padding: 8px 10px;
+    font-size: 14px;
+}
+
+.city-select option:hover {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.option_tour {
+    width: 90%;
+}
+
+.btn_tour {
+    width: 10%;
+}

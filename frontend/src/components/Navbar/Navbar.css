@@ -1,0 +1,78 @@
+.main_navbar {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(https://mytour.webtravel.vn/images/img1-2.jpeg);
+    width: 100%;
+    height: 518px;
+    position: relative;
+}
+
+.content_nav,
+.search_nav {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.content_nav {
+    top: 55%;
+}
+
+.search_nav {
+    top: 60%;
+}
+
+.table_search {
+    width: 1000px;
+    padding: 20px;
+    background: #fff;
+    width: 1000px;
+    border: none;
+    border-radius: 15px;
+}
+
+.table_search td {
+    border: none;
+    padding: 0 10px;
+}
+
+.list_nav {
+    width: 1000px;
+}
+
+.item_nav {
+    display: flex;
+    align-items: center;
+}
+
+p.txt_nav {
+    font-weight: bold;
+    color: #fff;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.icon_nav {
+    font-size: 25px;
+    color: #fff;
+}
+
+.active_icon-nav {
+    padding: 10px;
+    background-color: #297CBB;
+    border-radius: 50%;
+}
+
+.title_text-head>p {
+    color: #fff;
+    font-weight: 600;
+    font-size: 60px;
+    font-family: rubik, Helvetica, Arial, sans-serif;
+}
+
+.title_text-head {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
