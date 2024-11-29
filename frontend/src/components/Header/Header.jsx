@@ -26,7 +26,9 @@ const Header = () => {
     const naviHome = () => {
         navigate('/')
     }
-
+    const openHotel = () => {
+        navigate('/all-hotel')
+    }
     const items = [
         {
             label: 'Asia',
@@ -136,12 +138,12 @@ const Header = () => {
                 <Col span={10}>
                     <ul class="navbar-nav">
                         <li class="menu-item">
-                            <a href="" class="nav-link header-nav-link">
+                            <a href="" class="nav-link header-nav-link" onClick={naviHome}>
                                 Home
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="" class="nav-link header-nav-link">
+                            <a href="" class="nav-link header-nav-link" onClick={openHotel}>
                                 Hotel
                             </a>
                         </li>

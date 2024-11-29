@@ -14,6 +14,7 @@ const Location = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const { locations, isLoading, error } = useSelector((state) => state.local);
+    //console.log('locations', locations.data)
 
     useEffect(() => {
         dispatch(getAllLocal());
@@ -21,14 +22,17 @@ const Location = () => {
 
     const mappedLocations = Array.isArray(locations?.data)
         ? locations.data.map((location) => ({
+            id: location._id,
             name: location.provinceCity,
             image: location.avatar?.url || 'https://via.placeholder.com/300',
         }))
         : [];
-
     const navigatePage = () => {
         navigate('/location')
     }
+    const tourByLocation = (id) => {
+        navigate(`/tourist-attraction/${id}`);
+    };
     return (
         <div className="container_local">
             <div className="title_best-local">
@@ -60,7 +64,10 @@ const Location = () => {
                 >
                     {mappedLocations.map((location, index) => (
                         <SwiperSlide key={index}>
-                            <div className="card_local">
+                            <div
+                                className="card_local"
+                                onClick={() => tourByLocation(location.id)}
+                            >
                                 <div
                                     className="card-image_local"
                                     style={{ backgroundImage: `url(${location.image})` }}
