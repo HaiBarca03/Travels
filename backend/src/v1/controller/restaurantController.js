@@ -107,7 +107,7 @@ const updateRestaurant = async (req, res) => {
 
 const getRestaurantByLocation = async (req, res) => {
     try {
-        const { locationId } = req.body;
+        const { locationId } = req.params;
 
         const restaurant = await Restaurants.find({ location: locationId }).populate('location');
 

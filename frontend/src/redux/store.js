@@ -6,6 +6,10 @@ import localReducer from './reducer/local/localSlice'
 import touristReducer from './reducer/tourist/touristSlice'
 import touristDetailReducer from './reducer/tourist/touristDetail'
 import hotelReducer from './reducer/hotel/hotelSlice'
+import hotelByLocalReducer from './reducer/hotel/hotelSlice'
+import hotelDetailReducer from './reducer/hotel/hotelDetail'
+import allRestaurantReducer from './reducer/restaurant/restaurantSlice'
+import restaurantByLocalReducer from './reducer/restaurant/restaurantSlice'
 
 const userPersistConfig = {
     key: 'user',
@@ -27,6 +31,10 @@ export const store = configureStore({
         localTourist: touristReducer,
         touristDetail: touristDetailReducer,
         hotel: hotelReducer,
+        hotelByLocal: hotelByLocalReducer,
+        hotelDetail: hotelDetailReducer,
+        allrestaurant: allRestaurantReducer,
+        restaurantByLocal: restaurantByLocalReducer,
     },
 })
 

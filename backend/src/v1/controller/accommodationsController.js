@@ -110,7 +110,7 @@ const updateAccommodation = async (req, res) => {
 
 const getAccommodationsByLocation = async (req, res) => {
     try {
-        const { locationId } = req.body;
+        const { locationId } = req.params;
 
         const accommodations = await Accommodations.find({ location: locationId }).populate('location');
 
@@ -124,6 +124,38 @@ const getAccommodationsByLocation = async (req, res) => {
         });
     } catch (error) {
         console.error('Error fetching accommodations by location:', error);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+};
+
+const getAccommodationDetail = async (req, res) => {
+    try {
+        const { id } = req.params;
+        console.log('id', id)
+
+        if (!id) {
+            return res.status(400).json({
+                success: false,
+                message: 'Accommodation ID is required',
+            });
+        }
+
+        const accommodations = await Accommodations.findById(id).populate('location');
+
+        if (!accommodations) {
+            return res.status(404).json({
+                success: false,
+                message: 'No accommodations found',
+            });
+        }
+        //const accommodations = await checkAccommodations.find({ location: locationId }).populate('location');
+
+        res.status(200).json({
+            success: true,
+            data: accommodations,
+        });
+    } catch (error) {
+        console.error('Error fetching accommodations by ID:', error);
         res.status(500).json({ success: false, message: 'Server error' });
     }
 };
@@ -178,5 +210,6 @@ module.exports = {
     updateAccommodation,
     getAccommodationsByLocation,
     getAllAccommodations,
-    deleteAccommodation
+    deleteAccommodation,
+    getAccommodationDetail
 };

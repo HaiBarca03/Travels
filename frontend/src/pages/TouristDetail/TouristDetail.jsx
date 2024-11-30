@@ -7,6 +7,8 @@ import { Row, Col, Typography, Button, DatePicker, Spin, Empty, Rate } from 'ant
 import { useDispatch, useSelector } from 'react-redux';
 import { getTouristDetail } from '../../service/touristService';
 import { useParams } from 'react-router-dom';
+import HotelLocal from '../../components/Hotel/HotelLocal';
+import RestaurantLocal from '../../components/Restaurant/RestaurantLocal';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -166,6 +168,12 @@ const TouristDetail = () => {
                                     ))}
                                 </div>
                             </div>
+                            <div className='hotel_tip'>
+                                <h4>Khách sạn {mapTouristDetail.location.provinceCity}</h4>
+                                <HotelLocal locationId={mapTouristDetail.location._id} />
+                                <h4>Nhà hàng {mapTouristDetail.location.provinceCity}</h4>
+                                <RestaurantLocal locationId={mapTouristDetail.location._id} />
+                            </div>
                         </Col>
 
                         <Col span={8}>
@@ -187,23 +195,21 @@ const TouristDetail = () => {
                                 </Button>
                             </div>
                         </Col>
-                    </>
-                )
-                    : (
-                        <div style={{ textAlign: 'center', padding: '50px' }}>
-                            <Empty
-                                image={Empty.PRESENTED_IMAGE_SIMPLE}
-                                description={<span>Không có tour nào tại địa điểm này</span>}
-                            />
-                            <Button
-                                type="primary"
-                                onClick={() => window.location.reload()}
-                                style={{ marginTop: '20px' }}
-                            >
-                                Tải lại
-                            </Button>
-                        </div>
-                    )}
+                    </>) : (
+                    <div style={{ textAlign: 'center', padding: '50px' }}>
+                        <Empty
+                            image={Empty.PRESENTED_IMAGE_SIMPLE}
+                            description={<span>Không có tour nào tại địa điểm này</span>}
+                        />
+                        <Button
+                            type="primary"
+                            onClick={() => window.location.reload()}
+                            style={{ marginTop: '20px' }}
+                        >
+                            Tải lại
+                        </Button>
+                    </div>
+                )}
             </Row>
         </div >
     );

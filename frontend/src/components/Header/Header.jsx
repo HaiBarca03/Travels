@@ -29,6 +29,9 @@ const Header = () => {
     const openHotel = () => {
         navigate('/all-hotel')
     }
+    const openRestau = () => {
+        navigate('/all-restaurant')
+    }
     const items = [
         {
             label: 'Asia',
@@ -148,8 +151,8 @@ const Header = () => {
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="" class="nav-link header-nav-link">
-                                Tour
+                            <a href="" class="nav-link header-nav-link" onClick={openRestau}>
+                                Restaurant
                             </a>
                         </li>
                         <li class="menu-item">

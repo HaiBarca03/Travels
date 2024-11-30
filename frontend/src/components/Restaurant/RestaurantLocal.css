@@ -1,0 +1,60 @@
+.restaurant-local-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.restaurant-image-col {
+    text-align: center;
+}
+
+.restaurant-image {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.restaurant-info-col {
+    padding-left: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.restaurant-rating {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ff9900;
+}
+
+.restaurant-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.restaurant-address {
+    /* margin-left: 20px; */
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.item_star-restaurant {
+    font-size: 14px;
+}
+
+.restaurant-amenities {
+    font-size: 14px;
+    color: #444;
+    margin-right: 10px;
+}
+
+.restaurant-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e60000;
+}

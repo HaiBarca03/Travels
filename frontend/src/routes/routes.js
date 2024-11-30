@@ -1,9 +1,11 @@
 import AdminPage from "../pages/AdminPage/AdminPage";
 import HomePage from "../pages/HomePage/HomePage";
+import HotelDetailPage from "../pages/HotelDetailPage/HotelDetailPage";
 import HotelPage from "../pages/HotelPage/HotelPage";
 import LocationPage from "../pages/LocationPage/LocationPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import NotPoundPage from "../pages/NotPoundPage/NotPoundPage";
+import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
 import TouristDetail from "../pages/TouristDetail/TouristDetail";
 import TouristPage from "../pages/TouristPage/TouristPage";
@@ -40,8 +42,18 @@ export const routes = [
         isShowHeader: true,
     },
     {
+        path: '/hotel-detail',
+        page: HotelDetailPage,
+        isShowHeader: true,
+    },
+    {
         path: '/all-hotel',
         page: HotelPage,
+        isShowHeader: true,
+    },
+    {
+        path: '/all-restaurant',
+        page: RestaurantPage,
         isShowHeader: true,
     },
     {
