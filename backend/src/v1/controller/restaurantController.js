@@ -143,6 +143,24 @@ const getAllRestaurant = async (req, res) => {
     }
 };
 
+const getDetailRes = async (req, res) => {
+    const { restaurantId } = req.params
+    try {
+        const restaurant = await Restaurants.findById(restaurantId).populate('location');
+        if (!restaurant || restaurant.length === 0) {
+            return res.status(404).json({ success: false, message: 'No restaurant found' });
+        }
+
+        res.status(200).json({
+            success: true,
+            data: restaurant
+        });
+    } catch (error) {
+        console.error('Error fetching restaurant:', error);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+}
+
 const deleteRestaurant = async (req, res) => {
     try {
         const { id } = req.params;
@@ -158,7 +176,7 @@ const deleteRestaurant = async (req, res) => {
             }
         }
 
-        await restaurant.remove();
+        await Restaurants.findByIdAndDelete(id);
 
         res.status(200).json({
             success: true,
@@ -175,5 +193,6 @@ module.exports = {
     updateRestaurant,
     getRestaurantByLocation,
     getAllRestaurant,
+    getDetailRes,
     deleteRestaurant
 }

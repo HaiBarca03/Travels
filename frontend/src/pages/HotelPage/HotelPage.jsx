@@ -16,48 +16,48 @@ const HotelPage = () => {
     if (loading) return <p>Loading hotels...</p>;
     if (error) return <p>Error loading hotels: {error}</p>;
 
-    const hotels = [
-        {
-            image: "image_url_1",
-            location: "Greater London, United Kingdom",
-            name: "New York Marriott Downtown",
-            rating: 4.0,
-            reviews: 1,
-            price: 634.0,
-        },
-        {
-            image: "image_url_2",
-            location: "Greater London, United Kingdom",
-            name: "New York Marriott Downtown",
-            rating: 4.0,
-            reviews: 1,
-            price: 634.0,
-        },
-        {
-            image: "image_url_3",
-            location: "Greater London, United Kingdom",
-            name: "New York Marriott Downtown",
-            rating: 4.0,
-            reviews: 1,
-            price: 634.0,
-        },
-        {
-            image: "image_url_3",
-            location: "Greater London, United Kingdom",
-            name: "New York Marriott Downtown",
-            rating: 4.0,
-            reviews: 1,
-            price: 634.0,
-        },
-        {
-            image: "image_url_3",
-            location: "Greater London, United Kingdom",
-            name: "New York Marriott Downtown",
-            rating: 4.0,
-            reviews: 1,
-            price: 634.0,
-        },
-    ];
+    // const hotels = [
+    //     {
+    //         image: "image_url_1",
+    //         location: "Greater London, United Kingdom",
+    //         name: "New York Marriott Downtown",
+    //         rating: 4.0,
+    //         reviews: 1,
+    //         price: 634.0,
+    //     },
+    //     {
+    //         image: "image_url_2",
+    //         location: "Greater London, United Kingdom",
+    //         name: "New York Marriott Downtown",
+    //         rating: 4.0,
+    //         reviews: 1,
+    //         price: 634.0,
+    //     },
+    //     {
+    //         image: "image_url_3",
+    //         location: "Greater London, United Kingdom",
+    //         name: "New York Marriott Downtown",
+    //         rating: 4.0,
+    //         reviews: 1,
+    //         price: 634.0,
+    //     },
+    //     {
+    //         image: "image_url_3",
+    //         location: "Greater London, United Kingdom",
+    //         name: "New York Marriott Downtown",
+    //         rating: 4.0,
+    //         reviews: 1,
+    //         price: 634.0,
+    //     },
+    //     {
+    //         image: "image_url_3",
+    //         location: "Greater London, United Kingdom",
+    //         name: "New York Marriott Downtown",
+    //         rating: 4.0,
+    //         reviews: 1,
+    //         price: 634.0,
+    //     },
+    // ];
     const mapHotels = hotel?.data || []
 
     return (

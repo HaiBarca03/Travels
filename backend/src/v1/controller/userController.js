@@ -100,6 +100,39 @@ const loginUser = async (req, res) => {
     }
 }
 
+const getAllUser = async (req, res) => {
+    try {
+        const allUser = await UserModel.find();
+        res.json({
+            success: true,
+            data: allUser
+        });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: 'Error get user' });
+    }
+}
+
+const getUserDetail = async (req, res) => {
+    try {
+        const { userId } = req.params
+        const UserDetail = await UserModel.findById(userId)
+        if (!UserDetail) {
+            res.json({
+                success: false,
+                message: 'User not pound'
+            })
+        }
+        res.json({
+            success: true,
+            data: UserDetail,
+        })
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: 'Error get user' });
+    }
+}
+
 const updateUser = async (req, res) => {
     const userId = req.user._id;
     const data = req.body;
@@ -172,7 +205,7 @@ const deleteUser = async (req, res) => {
 };
 
 const adminDeleteUser = async (req, res) => {
-    const userId = req.params.userId;
+    const { userId } = req.params;
 
     try {
         const user = await UserModel.findById(userId);
@@ -194,8 +227,8 @@ const adminDeleteUser = async (req, res) => {
 };
 
 const updateUserRole = async (req, res) => {
+    const { userId } = req.params;
     const { role } = req.body;
-    const userId = req.params.userId;
 
     const validRoles = ['customer', 'admin', 'vendor'];
     if (!validRoles.includes(role)) {
@@ -220,10 +253,11 @@ const updateUserRole = async (req, res) => {
     }
 };
 
-
 module.exports = {
     registerUser,
     loginUser,
+    getAllUser,
+    getUserDetail,
     updateUser,
     deleteUser,
     adminDeleteUser,

@@ -148,7 +148,6 @@ const getAccommodationDetail = async (req, res) => {
                 message: 'No accommodations found',
             });
         }
-        //const accommodations = await checkAccommodations.find({ location: locationId }).populate('location');
 
         res.status(200).json({
             success: true,

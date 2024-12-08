@@ -10,6 +10,8 @@ import hotelByLocalReducer from './reducer/hotel/hotelSlice'
 import hotelDetailReducer from './reducer/hotel/hotelDetail'
 import allRestaurantReducer from './reducer/restaurant/restaurantSlice'
 import restaurantByLocalReducer from './reducer/restaurant/restaurantSlice'
+import adminGetAllUser from './reducer/admin/adminUserSlice'
+import adminGetLocal from './reducer/admin/adminLocalSlice'
 
 const userPersistConfig = {
     key: 'user',
@@ -35,6 +37,9 @@ export const store = configureStore({
         hotelDetail: hotelDetailReducer,
         allrestaurant: allRestaurantReducer,
         restaurantByLocal: restaurantByLocalReducer,
+        //admin
+        adminGetUser: adminGetAllUser,
+        adminGetLocal: adminGetLocal
     },
 })
 

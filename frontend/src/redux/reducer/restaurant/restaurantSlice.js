@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getAllRestaurant, getResByLocal } from '../../../service/restaurantService'
+import { getAllRestaurant, getResById, getResByLocal } from '../../../service/restaurantService'
 
 const initialState = {
     allRestaurant: [],
     restaurantByLocal: [],
+    restaurantById: null,
     isLoading: false,
     error: null,
 };
@@ -27,6 +28,7 @@ const restaurantSlice = createSlice({
                 state.isLoading = false;
                 state.error = action.payload;
             })
+
             .addCase(getResByLocal.pending, (state) => {
                 state.isLoading = true;
                 state.error = null;
@@ -36,6 +38,19 @@ const restaurantSlice = createSlice({
                 state.restaurantByLocal = action.payload;
             })
             .addCase(getResByLocal.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            })
+
+            .addCase(getResById.pending, (state) => {
+                state.isLoading = true;
+                state.error = null;
+            })
+            .addCase(getResById.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.restaurantById = action.payload;
+            })
+            .addCase(getResById.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
             });

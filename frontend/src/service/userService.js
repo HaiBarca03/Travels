@@ -23,4 +23,15 @@ export const registerUser = createAsyncThunk('user/registerUser', async (data, t
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data);
     }
-}); 
+});
+
+export const userDetail = createAsyncThunk('user/userDetail', async (userId, data, thunkAPI) => {
+    try {
+        const response = await axios.get(`http://localhost:4000/api/user/get-user-detail/${userId}`, userId, data);
+        //console.log('res.data:', response.data);
+        //Cookies.set('token', response.data.token, { expires: 7 });
+        return response.data;
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.response.data);
+    }
+});

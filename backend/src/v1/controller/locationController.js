@@ -68,6 +68,7 @@ const getAllLocations = async (req, res) => {
 const updateLocation = async (req, res) => {
     try {
         const { locationId } = req.params;
+        console.log('req.file', req.file)
         const { country, provinceCity } = req.body;
 
         const checkLocal = await LocationModel.findById(locationId);
@@ -125,6 +126,12 @@ const deleteLocation = async (req, res) => {
     const { locationId } = req.params;
 
     try {
+        if (!locationId) {
+            return res.status(404).json({
+                success: false,
+                message: 'LocationID fail'
+            });
+        }
         const deletedLocation = await LocationModel.findByIdAndDelete(locationId);
 
         if (!deletedLocation) {

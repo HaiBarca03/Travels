@@ -29,6 +29,7 @@ const authorizeUser = async (req, res, next) => {
 const isAdmin = async (req, res, next) => {
     try {
         const authHeader = req.headers.token;
+        //console.log('authHeader', authHeader)
         const token = authHeader && authHeader.split(' ')[1];
 
         if (!token) {
