@@ -52,6 +52,8 @@ const userSchema = new mongoose.Schema({
             ref: 'Favorites'
         }
     ]
+}, {
+    timestamps: true
 });
 
 module.exports = mongoose.model('Users', userSchema); 

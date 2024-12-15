@@ -10,6 +10,7 @@ const locationRouter = require('./src/v1/routers/locationRouter');
 const accommodationRouter = require('./src/v1/routers/accommodationRouter');
 const restaurantRouter = require('./src/v1/routers/restaurantRouter');
 const touristAttractionRouter = require('./src/v1/routers/touristAttractionRouter');
+const tourRouter = require('./src/v1/routers/tourRouter');
 
 const app = express();
 
@@ -37,6 +38,7 @@ app.use('/api/location', locationRouter)
 app.use('/api/accommodation', accommodationRouter)
 app.use('/api/restaurant', restaurantRouter)
 app.use('/api/tourist-attraction', touristAttractionRouter)
+app.use('/api/tour', tourRouter)
 
 // Home route
 app.get('/', (req, res) => {

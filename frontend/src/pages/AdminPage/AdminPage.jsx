@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import User from '../../components/User/User';
 import AdminLocationCpn from '../../components/Location/AdminLocationCpn/AdminLocationCpn';
 import AdminRestaurantCpn from '../../components/Restaurant/AdminRestaurantCpn/AdminRestaurantCpn';
+import AdminHotelCpn from '../../components/Hotel/AdminHotelCpn/AdminHotelCpn';
 
 const { Header, Sider, Content } = Layout;
 const { Title } = Typography;
@@ -27,6 +28,8 @@ const AdminPage = () => {
             case '5':
                 return <AdminRestaurantCpn />
             case '6':
+                return <AdminHotelCpn />;
+            case '7':
                 return <div>Not Found Content</div>;
             default:
                 return <div>Select a menu item</div>;
@@ -63,6 +66,9 @@ const AdminPage = () => {
                         Nhà hàng
                     </Menu.Item>
                     <Menu.Item key="6" icon={<FileOutlined />}>
+                        Khách sạn
+                    </Menu.Item>
+                    <Menu.Item key="7" icon={<FileOutlined />}>
                         Not Found
                     </Menu.Item>
                 </Menu>

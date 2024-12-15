@@ -192,7 +192,7 @@ const deleteAccommodation = async (req, res) => {
             }
         }
 
-        await accommodation.remove();
+        await Accommodations.findByIdAndDelete(id);
 
         res.status(200).json({
             success: true,

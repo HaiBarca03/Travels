@@ -12,7 +12,7 @@ cloudinary.config({
 
 const createTouristAttraction = async (req, res) => {
     try {
-        const { name, description, location, activities, rating, reviews } = req.body;
+        const { name, description, location, activities, rating, price, reviews } = req.body;
 
         let imagesLinks = [];
 
@@ -37,6 +37,7 @@ const createTouristAttraction = async (req, res) => {
             location,
             images: imagesLinks,
             activities,
+            price,
             rating: rating || 1,
             reviews
         });

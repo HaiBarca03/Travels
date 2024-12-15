@@ -22,7 +22,6 @@ const TouristDetail = () => {
         }
     }, [id, dispatch]);
 
-    //console.log('id', id)
     if (loading) {
         return <Spin size="large" />;
     }

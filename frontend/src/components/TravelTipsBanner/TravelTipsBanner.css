@@ -1,0 +1,53 @@
+/* TravelTipsBanner.css */
+
+.travel-banner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-image: url("https://mytour.webtravel.vn/images/travel-trip.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px 0;
+    position: relative;
+    padding-bottom: 30px;
+    font-family: sans-serif;
+}
+
+.travel-banner-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 700px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.travel-banner-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.travel-banner-text {
+    font-size: 1.1rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.travel-banner-button {
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.travel-banner-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}

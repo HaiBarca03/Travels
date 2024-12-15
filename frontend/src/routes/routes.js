@@ -7,6 +7,7 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import NotPoundPage from "../pages/NotPoundPage/NotPoundPage";
 import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
+import TourDetail from "../pages/TourDetail/TourDetail";
 import TouristDetail from "../pages/TouristDetail/TouristDetail";
 import TouristPage from "../pages/TouristPage/TouristPage";
 
@@ -39,6 +40,11 @@ export const routes = [
     {
         path: '/tourist-detail/:id',
         page: TouristDetail,
+        isShowHeader: true,
+    },
+    {
+        path: '/tour-detail/:id',
+        page: TourDetail,
         isShowHeader: true,
     },
     {

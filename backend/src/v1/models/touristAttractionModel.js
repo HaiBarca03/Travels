@@ -18,8 +18,8 @@ const touristAttractionSchema = new mongoose.Schema({
     },
     price: {
         type: String,
-        required: true,
-        trim: true
+        //required: true,
+        //trim: true
     },
     images: [
         {

@@ -200,3 +200,66 @@ export const addRes = createAsyncThunk('user/addRes', async ({ data }, thunkAPI)
         return thunkAPI.rejectWithValue(error.response?.data || 'Something went wrong');
     }
 });
+
+export const addHotel = createAsyncThunk('user/addHotel', async ({ data }, thunkAPI) => {
+    try {
+        const token = Cookies.get('token');
+        if (!token) {
+            throw new Error("Token not found");
+        }
+        const response = await axiosJWT.post(
+            `http://localhost:4000/api/accommodation/create-accommodation`,
+            data,
+            {
+                headers: {
+                    'token': `Bearer ${Cookies.get('token')}`
+                }
+            }
+        );
+        console.log('data', data)
+        return response.data;
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.response?.data || 'Something went wrong');
+    }
+});
+
+export const updateHotel = createAsyncThunk('user/updateRes', async ({ accommodationId, data }, thunkAPI) => {
+    try {
+        const token = Cookies.get('token');
+        if (!token) {
+            throw new Error("Token not found");
+        }
+        const response = await axiosJWT.put(
+            `http://localhost:4000/api/accommodation/update-accommodation/${accommodationId}`,
+            data,
+            {
+                headers: {
+                    'token': `Bearer ${Cookies.get('token')}`
+                }
+            }
+        );
+        return response.data;
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.response?.data || 'Something went wrong');
+    }
+});
+
+export const deleteHotel = createAsyncThunk('user/deleteHotel', async ({ id }, thunkAPI) => {
+    try {
+        const token = Cookies.get('token');
+        if (!token) {
+            throw new Error("Token not found");
+        }
+        const response = await axiosJWT.delete(
+            `http://localhost:4000/api/accommodation/delete-accommodation/${id}`,
+            {
+                headers: {
+                    'token': `Bearer ${Cookies.get('token')}`
+                }
+            }
+        );
+        return response.data;
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.response?.data || 'Something went wrong');
+    }
+});

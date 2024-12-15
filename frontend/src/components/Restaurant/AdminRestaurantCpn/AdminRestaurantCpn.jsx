@@ -13,14 +13,14 @@ const AdminRestaurantCpn = () => {
     const { locations, loading } = useSelector((state) => state.adminGetLocal);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isUpdateModalVisible, setIsUpdateModalVisible] = useState(false);
-    //const [isAddModalVisible, setIsAddModalVisible] = useState(false);
+    const [isViewModalVisible, setIsViewModalVisible] = useState(false);
     const [deleteImages, setDeleteImages] = useState([]);
     const [updateFormData, setUpdateFormData] = useState({});
     const [addForm] = Form.useForm();
     const listRestaurant = allRestaurant?.data;
     const listLocation = locations?.data;
 
-    console.log('locations', listLocation)
+    //console.log('locations', listLocation)
 
     useEffect(() => {
         dispatch(getAllRestaurant());
@@ -87,11 +87,12 @@ const AdminRestaurantCpn = () => {
 
     const handleView = (restaurantId) => {
         dispatch(getResById({ restaurantId }));
-        setIsModalVisible(true);
+        setIsViewModalVisible(true);
     };
 
     const handleCloseModal = () => {
         setIsModalVisible(false);
+        setIsViewModalVisible(false);
     };
 
     const handleUpdate = () => {
@@ -164,7 +165,7 @@ const AdminRestaurantCpn = () => {
 
             <Modal
                 title="Chi tiết nhà hàng"
-                open={isModalVisible}
+                open={isViewModalVisible}
                 onCancel={handleCloseModal}
                 footer={null}
             >
