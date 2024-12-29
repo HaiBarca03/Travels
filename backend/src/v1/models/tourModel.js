@@ -1,7 +1,8 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-const tourSchema = new Schema({
+const tourSchema = new Schema(
+  {
     name: { type: String, required: true },
     code: { type: String, required: true },
     tour_places: [{ type: Schema.Types.ObjectId, ref: 'TouristAttraction' }],
@@ -16,10 +17,12 @@ const tourSchema = new Schema({
     guide_id: { type: Schema.Types.ObjectId, ref: 'Guide', required: true },
     rating: { type: Number, default: 0 },
     reviews: [{ type: String }]
-}, {
+  },
+  {
     timestamps: true
-});
+  }
+)
 
-const Tour = mongoose.model('Tours', tourSchema);
+const Tour = mongoose.model('Tours', tourSchema)
 
-module.exports = Tour;
+module.exports = Tour

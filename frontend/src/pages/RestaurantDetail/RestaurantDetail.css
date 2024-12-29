@@ -1,0 +1,102 @@
+.restaurant-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+}
+
+.restaurant-card {
+  width: 90% !important;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: white;
+}
+
+.restaurant-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.restaurant-main {
+  flex: 7.5;
+  padding: 20px;
+}
+
+.restaurant-header {
+  margin-bottom: 20px;
+}
+
+.restaurant-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.restaurant-details {
+  text-align: left;
+}
+
+.restaurant-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.restaurant-description {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.restaurant-type,
+.restaurant-address {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #777;
+}
+
+.restaurant-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.rating-text {
+  margin-left: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Phần 3 */
+.restaurant-sidebar {
+  flex: 2.5;
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+  border-left: 2px solid #e0e0e0;
+}
+
+.sidebar-info {
+  margin-bottom: 20px;
+}
+
+.sidebar-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.sidebar-actions {
+  margin-top: 20px;
+}
+
+.booking-button {
+  width: 100%;
+  font-size: 16px;
+  padding: 10px;
+}

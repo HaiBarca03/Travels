@@ -1,0 +1,59 @@
+.tour-details {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.tour-name {
+  font-size: 2em;
+  color: #2c3e50;
+}
+
+.tour-code,
+.tour-description,
+.tour-activities,
+.tour-price,
+.tour-start-date,
+.tour-departure,
+.tour-duration,
+.tour-max-participants,
+.tour-current-participants,
+.tour-guide-id,
+.tour-rating,
+.tour-reviews {
+  margin: 10px 0;
+}
+
+.tour-places-title {
+  margin-top: 20px;
+  font-size: 1.5em;
+  color: #16a085;
+}
+
+.tour-place {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.place-name {
+  font-size: 1.2em;
+  color: #2980b9;
+}
+
+.place-description,
+.place-location,
+.place-activities,
+.place-rating,
+.place-price {
+  margin: 5px 0;
+}
+
+.place-images {
+  margin-top: 10px;
+}
+
+.place-image {
+  width: 200px;
+  height: auto;
+  margin-right: 10px;
+}

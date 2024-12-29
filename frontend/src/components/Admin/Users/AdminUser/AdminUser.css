@@ -1,0 +1,67 @@
+.employee-table {
+  margin: 20px;
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  position: relative;
+}
+
+.user_detail-cpn {
+  left: 50%;
+  top: 100px;
+  position: absolute;
+  background-color: antiquewhite;
+}
+
+.list_avatar-user {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.employee-table table {
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+.employee-table th,
+.employee-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.employee-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+}
+
+.status-full-time {
+  background-color: #4caf50;
+}
+
+.status-part-time {
+  background-color: #ff9800;
+}
+
+.edit-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.details {
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}

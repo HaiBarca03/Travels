@@ -1,0 +1,65 @@
+.tourist-container {
+  margin: 20px;
+}
+
+.tourist-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tourist-content {
+  display: flex;
+  gap: 20px;
+}
+
+.tourist-slider {
+  width: 60%;
+}
+
+.tourist-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.tourist-detail {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.tourist-left {
+  margin-bottom: 20px;
+}
+
+.tourist-left h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.tourist-left p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.tourist-rating {
+  margin-top: 10px;
+}
+
+.tourist-sidebar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.tourist-book-button {
+  width: 200px;
+  font-size: 16px;
+  padding: 10px;
+  text-align: center;
+}

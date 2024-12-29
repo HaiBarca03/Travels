@@ -1,59 +1,69 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const accommodationsSchema = new mongoose.Schema({
+const accommodationsSchema = new mongoose.Schema(
+  {
     name: {
-        type: String,
-        required: true,
-        trim: true
+      type: String,
+      required: true,
+      trim: true
+    },
+    description: {
+      type: String,
+      required: true,
+      trim: true
     },
     address: {
-        type: String,
-        required: true,
-        trim: true
+      type: String,
+      required: true,
+      trim: true
     },
     location: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Location',
-        required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Location',
+      required: true
     },
     type: {
-        type: String,
-        required: true,
-        trim: true
+      type: String,
+      required: true,
+      trim: true
     },
     price: {
-        type: String,
-        required: true,
-        trim: true
+      type: String,
+      required: true,
+      trim: true
     },
     amenities: {
-        type: [String],
-        default: []
+      type: [String],
+      default: []
     },
     images: [
-        {
-            public_id: {
-                type: String,
-                required: true
-            },
-            url: {
-                type: String,
-                required: true
-            }
+      {
+        public_id: {
+          type: String,
+          required: true
+        },
+        url: {
+          type: String,
+          required: true
         }
+      }
     ],
     rating: {
-        type: Number,
-        min: 1,
-        max: 5,
-        default: 1
+      type: Number,
+      min: 1,
+      max: 5,
+      default: 1
     },
-    reviews: [{
+    reviews: [
+      {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Review'
-    }]
-}, {
+      }
+    ]
+  },
+  {
     timestamps: true
-});
+  }
+)
 
-module.exports = mongoose.model('Accommodations', accommodationsSchema);
+module.exports = mongoose.model('Accommodations', accommodationsSchema)

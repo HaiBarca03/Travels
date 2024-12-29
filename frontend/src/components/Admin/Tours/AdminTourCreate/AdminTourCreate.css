@@ -1,0 +1,101 @@
+.admin-tour-create {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.admin-tour-create h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.admin-tour-create form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.admin-tour-create label {
+  font-weight: bold;
+  color: #555;
+}
+
+.admin-tour-create input,
+.admin-tour-create textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.admin-tour-create input:focus,
+.admin-tour-create textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.admin-tour-create textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.admin-tour-create button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.admin-tour-create button:hover {
+  background-color: #0056b3;
+}
+
+.admin-tour-create .error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: -10px;
+}
+.tour-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.tour-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tour-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.tour-item h5 {
+  margin: 5px 0;
+}
+
+input[type='checkbox'] {
+  margin-top: 10px;
+}

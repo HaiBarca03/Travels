@@ -1,86 +1,90 @@
 body {
-    position: relative;
+  position: relative;
 }
 
 .imgLogin img {
-    width: 100%;
-    height: 638px;
-    background-size: cover;
-    background-repeat: no-repeat;
+  width: 100%;
+  height: 638px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .content__login {
-    position: absolute;
-    width: 350px;
-    height: 350px;
-    box-shadow: 2px 5px 15px black;
-    background-color: rgba(251, 247, 247, 0.388);
-    top: 25%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 15px;
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  box-shadow: 2px 5px 15px black;
+  background-color: rgba(251, 247, 247, 0.388);
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 15px;
 }
 
 .header__login h2 {
-    text-align: center;
+  text-align: center;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    margin: 20px 15%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 15%;
 }
 
 .header__login {
-    padding: 20px 0;
+  padding: 20px 0;
 }
 
 .user,
 .pw {
-    display: flex;
-    border-bottom: 1px solid seagreen;
-    padding-bottom: 1px;
-    margin-top: 30px;
+  display: flex;
+  border-bottom: 1px solid seagreen;
+  padding-bottom: 1px;
+  margin-top: 30px;
 }
 
 #user::placeholder,
 #pw::placeholder {
-    color: black;
-    font-weight: 550;
+  color: black;
+  font-weight: 550;
 }
 
 input {
-    padding-left: 5px;
-    background-color: transparent;
+  border: navajowhite;
+  width: 100%;
+  padding-left: 5px;
+  background-color: transparent;
 }
 
 input:focus {
-    outline: none;
+  outline: none;
 }
 
 .fa-solid {
-    padding-bottom: 4px;
+  padding-bottom: 4px;
 }
 
 .forget {
-    margin: 15px 0;
-    float: right;
-    display: flex;
-    justify-content: end;
-    font-size: 14px;
+  margin: 15px 0;
+  float: right;
+  display: flex;
+  justify-content: end;
+  font-size: 14px;
 }
 
 button {
-    border-radius: 5px;
-    padding: 10px 0;
+  border: aliceblue;
+  border-radius: 5px;
+  padding: 10px 0;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: rgb(240, 157, 4);
+  background-color: antiquewhite;
 }
 
 button a {
-    padding: 10px 85px;
-    color: black;
-    font-weight: 550;
+  padding: 10px 85px;
+  color: black;
+  font-weight: 550;
 }

@@ -1,36 +1,37 @@
-const express = require('express');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const dbConnect = require('./src/config/db');
+const express = require('express')
+const cors = require('cors')
+const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser')
+const dbConnect = require('./src/config/db')
 
 // Import routers
-const userRouter = require('./src/v1/routers/userRouter');
-const locationRouter = require('./src/v1/routers/locationRouter');
-const accommodationRouter = require('./src/v1/routers/accommodationRouter');
-const restaurantRouter = require('./src/v1/routers/restaurantRouter');
-const touristAttractionRouter = require('./src/v1/routers/touristAttractionRouter');
-const tourRouter = require('./src/v1/routers/tourRouter');
+const userRouter = require('./src/v1/routers/userRouter')
+const locationRouter = require('./src/v1/routers/locationRouter')
+const accommodationRouter = require('./src/v1/routers/accommodationRouter')
+const restaurantRouter = require('./src/v1/routers/restaurantRouter')
+const touristAttractionRouter = require('./src/v1/routers/touristAttractionRouter')
+const tourRouter = require('./src/v1/routers/tourRouter')
+const favoriteRouter = require('./src/v1/routers/favoriteRoute')
 
-const app = express();
+const app = express()
 
 // Configurations
-const port = process.env.PORT || 4000;
-app.use(express.json());
-app.use(express.json({ limit: '50mb' }));
-app.use(bodyParser.json());
-app.use(cookieParser());
-require('dotenv').config();
+const port = process.env.PORT || 4000
+app.use(express.json())
+app.use(express.json({ limit: '50mb' }))
+app.use(bodyParser.json())
+app.use(cookieParser())
+require('dotenv').config()
 const corsOptions = {
-    origin: 'http://localhost:5173',
-    methods: 'GET,POST,PUT,DELETE',
-    credentials: true,
-};
+  origin: 'http://localhost:5173',
+  methods: 'GET,POST,PUT,DELETE',
+  credentials: true
+}
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions))
 
 // DB connect
-dbConnect();
+dbConnect()
 
 // API routes
 app.use('/api/user', userRouter)
@@ -39,13 +40,14 @@ app.use('/api/accommodation', accommodationRouter)
 app.use('/api/restaurant', restaurantRouter)
 app.use('/api/tourist-attraction', touristAttractionRouter)
 app.use('/api/tour', tourRouter)
+app.use('/api/favorite', favoriteRouter)
 
 // Home route
 app.get('/', (req, res) => {
-    res.send('Hello World');
-});
+  res.send('Hello World')
+})
 
 // Start server
 app.listen(port, () => {
-    console.log(`App running on port: ${port}`);
-});
+  console.log(`App running on port: ${port}`)
+})
