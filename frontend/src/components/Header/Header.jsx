@@ -13,6 +13,7 @@ import {
   ShoppingCartOutlined,
   LogoutOutlined
 } from '@ant-design/icons'
+import { IoBagCheck } from 'react-icons/io5'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { persistor } from '../../redux/store'
@@ -58,6 +59,13 @@ const Header = () => {
 
   const openTour = () => {
     navigate('/tour')
+  }
+
+  const openCart = () => {
+    navigate('/order')
+  }
+  const openBooked = () => {
+    navigate('/booked')
   }
   const items = [
     {
@@ -110,7 +118,7 @@ const Header = () => {
         <Col span={10}></Col>
         <Col span={8}>
           <Row className="right-item">
-            <Col span={6} className="social-network">
+            <Col span={8} className="social-network">
               <ul class="list-inline social-media">
                 <li className="list-inline-item">
                   <a
@@ -176,7 +184,7 @@ const Header = () => {
                 </Col>
               </>
             )}
-            <Col span={6} className="location">
+            <Col span={4} className="location">
               <Dropdown menu={menuProps}>
                 <Button>
                   <Space>
@@ -197,7 +205,7 @@ const Header = () => {
           />
           <span className="navbar-brand__text">My Travels</span>
         </Col>
-        <Col span={10}>
+        <Col span={12}>
           <ul class="navbar-nav">
             <li class="menu-item">
               <a href="" class="nav-link header-nav-link" onClick={naviHome}>
@@ -240,9 +248,14 @@ const Header = () => {
             </li>
           </ul>
         </Col>
-        <Col className="cart_booking" span={4}>
-          <div className="cart">
+        <Col className="cart_booking" span={1}>
+          <div className="cart" onClick={openCart}>
             <ShoppingCartOutlined className="img_cart-item" />
+          </div>
+        </Col>
+        <Col className="cart_booking" onClick={openBooked} span={1}>
+          <div className="cart">
+            <IoBagCheck className="img_cart-item" />
           </div>
         </Col>
       </Row>

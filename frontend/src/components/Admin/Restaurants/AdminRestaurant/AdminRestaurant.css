@@ -1,0 +1,155 @@
+.admin-restaurant-frame {
+  padding: 0 20px;
+}
+.create-res-btn {
+  width: 100px;
+}
+.create-res-btn-btn {
+  background-color: blueviolet;
+  color: #fff;
+  font-size: 12px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.action-res-btn {
+  display: flex;
+}
+.table-res {
+  width: 100%;
+}
+
+/* AdminRestaurant.css */
+.view-res-modal {
+  width: 900px !important;
+}
+.modal-content {
+  display: flex;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+  padding: 16px;
+  width: 96%;
+}
+
+.modal-content-left {
+  flex: 1;
+  max-width: 50%;
+}
+
+.modal-content-left h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.modal-content-left p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.modal-content-left p strong {
+  color: #222;
+}
+
+.modal-content-right {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content-right img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content-right img:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.modal-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* UpdateRestaurantModal.css */
+
+/* Modal Container */
+.update-res-modal {
+  width: 70%;
+  max-width: 800px;
+  padding: 16px;
+  font-family: Arial, sans-serif;
+}
+
+/* Label Styling */
+.update-res-modal label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+  color: #333;
+}
+
+/* Input Styling */
+.update-res-modal .ant-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+/* Upload Button */
+.update-res-modal .ant-upload-button {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+/* Image Display Section */
+.update-res-modal .images-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+/* Individual Image Display */
+.update-res-modal .image-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.update-res-modal .image-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Delete Button for Image */
+.update-res-modal .delete-image-button {
+  margin-top: 8px;
+  color: #ff4d4f;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .update-res-modal {
+    width: 90%;
+  }
+
+  .update-res-modal .images-section {
+    justify-content: center;
+  }
+}

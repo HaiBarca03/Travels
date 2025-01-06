@@ -87,7 +87,6 @@ const getAllLocations = async (req, res) => {
 const updateLocation = async (req, res) => {
   try {
     const { locationId } = req.params
-    console.log('req.file', req.file)
     const { country, provinceCity } = req.body
 
     const checkLocal = await LocationModel.findById(locationId)

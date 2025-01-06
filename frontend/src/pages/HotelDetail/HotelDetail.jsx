@@ -15,8 +15,21 @@ const HotelDetail = () => {
     )
   }
 
-  const { name, address, location, type, price, amenities, images, rating } =
-    state?.hotelDetail
+  const handelBooking = (id) => {
+    navigate('/hotel/booking', { state: { hotelId: id } })
+  }
+
+  const {
+    _id,
+    name,
+    address,
+    location,
+    type,
+    price,
+    amenities,
+    images,
+    rating
+  } = state?.hotelDetail
 
   return (
     <div className="hotel-container">
@@ -50,7 +63,11 @@ const HotelDetail = () => {
             </div>
           </div>
           <div className="hotel-actions">
-            <Button type="primary" className="booking-button">
+            <Button
+              type="primary"
+              className="booking-button"
+              onClick={() => handelBooking(_id)}
+            >
               Đặt phòng
             </Button>
           </div>

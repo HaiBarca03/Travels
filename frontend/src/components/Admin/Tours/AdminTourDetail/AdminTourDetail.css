@@ -1,59 +1,129 @@
 .tour-details {
-  font-family: Arial, sans-serif;
-  margin: 20px;
+  margin-top: 20px;
+}
+.tour-header {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-.tour-name {
-  font-size: 2em;
-  color: #2c3e50;
+.tour-header .tour-name {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
-.tour-code,
-.tour-description,
-.tour-activities,
-.tour-price,
+.tour-header .tour-code {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.tour-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.tour-section {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tour-section p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #444;
+  margin-bottom: 0.8rem;
+}
+
+.tour-section p strong {
+  font-weight: bold;
+  color: #222;
+}
+
+.tour-price {
+  font-size: 1.2rem;
+  color: #28a745;
+  font-weight: bold;
+}
+
 .tour-start-date,
-.tour-departure,
 .tour-duration,
-.tour-max-participants,
-.tour-current-participants,
-.tour-guide-id,
-.tour-rating,
-.tour-reviews {
-  margin: 10px 0;
+.tour-rating {
+  font-size: 1.1rem;
+  color: #6c757d;
 }
 
 .tour-places-title {
-  margin-top: 20px;
-  font-size: 1.5em;
-  color: #16a085;
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+  text-align: center;
 }
 
 .tour-place {
+  display: flex;
+  background-color: #fff;
   border: 1px solid #ddd;
-  padding: 10px;
-  margin: 10px 0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.place-name {
-  font-size: 1.2em;
-  color: #2980b9;
+.tour-place {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.place-description,
-.place-location,
-.place-activities,
-.place-rating,
-.place-price {
-  margin: 5px 0;
+.tour-place-info-ct {
+  flex: 1;
+  padding-right: 1.5rem;
+}
+
+.tour-place-info-ct h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 0.8rem;
+}
+
+.tour-place-info-ct p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.6rem;
 }
 
 .place-images {
-  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  /* height: 300px; */
+  flex-shrink: 0;
 }
 
-.place-image {
-  width: 200px;
-  height: auto;
-  margin-right: 10px;
+.place-images h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: #444;
+}
+
+.place-images img {
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }

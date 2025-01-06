@@ -93,10 +93,7 @@ const getAllTours = async (req, res) => {
       .filter()
       .pagination(resultPerPage)
 
-    const tours = await features.query.populate({
-      path: 'tour_places',
-      select: 'name'
-    })
+    const tours = await features.query.populate('tour_places')
 
     res.status(200).json({
       message: 'All tours retrieved successfully',

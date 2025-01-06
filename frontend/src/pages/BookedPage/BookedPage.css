@@ -1,0 +1,38 @@
+.order-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.order-page h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.filters {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.filters select {
+  margin-right: 10px;
+}
+
+.custom-modal-cancel-pay .ant-modal-confirm-btns {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.custom-modal-cancel-pay .ant-btn-primary {
+  background-color: #ff4d4f;
+  border-color: #ff4d4f;
+}
+
+.custom-modal-cancel-pay .ant-btn-primary:hover {
+  background-color: #ff7875;
+  border-color: #ff7875;
+}

@@ -22,10 +22,9 @@ export const getAllRestaurant = createAsyncThunk(
 export const getResByLocal = createAsyncThunk(
   'local/getResByLocal',
   async ({ locationId, type }, thunkAPI) => {
-    // Receive both locationId and type as an object
     try {
       const queryParams = new URLSearchParams({
-        type // Include type in the query params
+        type
       }).toString()
 
       const response = await axios.get(
@@ -52,7 +51,6 @@ export const getResById = createAsyncThunk(
       const response = await axios.get(
         `http://localhost:4000/api/restaurant/get-by-id/${restaurantId}`
       )
-      console.log('Response data:', response.data)
 
       if (response.data.success) {
         return response.data.data

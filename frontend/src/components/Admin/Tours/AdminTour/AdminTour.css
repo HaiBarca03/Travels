@@ -4,7 +4,9 @@
   background-color: #f9f9f9;
   position: relative;
 }
-
+.create-tour-btn {
+  width: 100px;
+}
 .tour-admin-table {
   width: 100%;
   border-collapse: collapse;
@@ -31,9 +33,9 @@
   gap: 10px;
 }
 
-.btn {
-  padding: 8px 16px;
-  font-size: 14px;
+.tour-admin-actions > .btn {
+  padding: 6px;
+  font-size: 11px;
   border: none;
   cursor: pointer;
   border-radius: 4px;
@@ -91,4 +93,5 @@
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+  width: 100px;
 }

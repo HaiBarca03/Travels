@@ -81,6 +81,14 @@ const AddHotel = ({ visible, onClose, onSubmit }) => {
           </Select>
         </Form.Item>
 
+        <Form.Item
+          name="description"
+          label="Mo ta"
+          rules={[{ required: true, message: 'Please enter the description' }]}
+        >
+          <Input placeholder="Enter description" />
+        </Form.Item>
+
         <Form.Item name="amenities" label="Amenities">
           <Select
             mode="tags"

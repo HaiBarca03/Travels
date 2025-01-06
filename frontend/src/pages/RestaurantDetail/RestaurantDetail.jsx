@@ -15,8 +15,21 @@ const RestaurantDetail = () => {
     )
   }
 
-  const { name, address, location, type, price, images, rating, description } =
-    state?.restaurantDetail
+  const handelBooking = (id) => {
+    navigate('/restaurant/booking', { state: { restaurantId: id } })
+  }
+
+  const {
+    _id,
+    name,
+    address,
+    location,
+    type,
+    price,
+    images,
+    rating,
+    description
+  } = state?.restaurantDetail
 
   return (
     <div className="restaurant-container">
@@ -49,7 +62,11 @@ const RestaurantDetail = () => {
               <p className="sidebar-price">Giá trung bình: {price} VND</p>
             </div>
             <div className="sidebar-actions">
-              <Button type="primary" className="booking-button">
+              <Button
+                type="primary"
+                className="booking-button"
+                onClick={() => handelBooking(_id)}
+              >
                 Đặt nhà hàng
               </Button>
             </div>

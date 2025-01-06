@@ -103,7 +103,7 @@ const User = () => {
               <td>{user_item.phone}</td>
               <td>{user_item.addresses}</td>
               <td>{user_item.role}</td>
-              <td>
+              <td className="action-cl">
                 <button
                   onClick={() => handleViewDetail(user_item._id)}
                   className="edit-btn"
@@ -138,6 +138,7 @@ const User = () => {
             <h3>Edit Role</h3>
             <select
               value={newRole}
+              className="role-select-itemmmm"
               onChange={(e) => setNewRole(e.target.value)}
             >
               <option value="customer">Customer</option>

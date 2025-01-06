@@ -2,11 +2,11 @@ import React from 'react'
 import { Card, Rate, Button, Carousel } from 'antd'
 import './TouristDestinationDetail.css'
 import { useLocation, useNavigate } from 'react-router-dom'
+import FeedbackSection from '../../components/Feedback/Feedback'
 
 const TouristDestinationDetail = () => {
   const { state } = useLocation()
   const navigate = useNavigate()
-  console.log('state?.toursDetail:', state?.toursDetail)
   if (!state?.toursDetail) {
     return (
       <div className="tourist-container">
@@ -16,14 +16,31 @@ const TouristDestinationDetail = () => {
     )
   }
 
-  const { name, description, location, images, rating, price, activities } =
-    state?.toursDetail.data
+  const handelBooking = (id) => {
+    if (id) {
+      navigate('/tourist/booking', { state: { touristId: id } })
+    } else {
+      message.error(
+        'Please select a date and ensure participants are within the limit.'
+      )
+    }
+  }
+
+  const {
+    _id,
+    name,
+    description,
+    location,
+    images,
+    rating,
+    price,
+    activities
+  } = state?.toursDetail.data
 
   return (
     <div className="tourist-container">
       <Card className="tourist-card">
         <div className="tourist-content">
-          {/* Image slider on top */}
           <div className="tourist-slider">
             <Carousel autoplay>
               {images.map((image) => (
@@ -57,12 +74,17 @@ const TouristDestinationDetail = () => {
 
             {/* Sidebar */}
             <div className="tourist-sidebar">
-              <Button type="primary" className="tourist-book-button">
+              <Button
+                type="primary"
+                className="tourist-book-button"
+                onClick={() => handelBooking(_id)}
+              >
                 Đặt vé
               </Button>
             </div>
           </div>
         </div>
+        <FeedbackSection data={{ tourist_id: _id }} />
       </Card>
     </div>
   )

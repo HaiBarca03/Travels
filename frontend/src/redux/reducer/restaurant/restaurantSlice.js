@@ -51,7 +51,7 @@ const restaurantSlice = createSlice({
       })
       .addCase(getResById.fulfilled, (state, action) => {
         state.isLoading = false
-        state.restaurantById = action.payload
+        state.restaurantDetail = action.payload
       })
       .addCase(getResById.rejected, (state, action) => {
         state.isLoading = false

@@ -11,19 +11,18 @@ const AdminTour = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { allTour, isLoading, error } = useSelector((state) => state.tour)
-  const [selectedTour, setSelectedTour] = useState(null)
+  const [selectedTour, setSelectedTour] = useState(false)
   const [isCreateVisible, setIsCreateVisible] = useState(false)
-
+  console.log('selectedTour', selectedTour?._id)
   useEffect(() => {
     dispatch(getAllTour())
   }, [dispatch])
-
   const tours = allTour?.tours || []
   const handleDetail = (id) => {
     setSelectedTour(id)
   }
   const closeDetail = () => {
-    setSelectedTour(null)
+    setSelectedTour(false)
   }
   const handleCreate = () => {
     setIsCreateVisible(true)
@@ -53,7 +52,9 @@ const AdminTour = () => {
   return (
     <div className="tour-admin-container">
       <div>
-        <button onClick={handleCreate}>Create</button>
+        <button className="create-tour-btn" onClick={handleCreate}>
+          Create
+        </button>
       </div>
       <table className="tour-admin-table">
         <thead>
@@ -103,7 +104,7 @@ const AdminTour = () => {
             <button className="btn btn-close" onClick={closeDetail}>
               Close
             </button>
-            <AdminTourDetail tour={selectedTour._id} />
+            <AdminTourDetail tour={selectedTour} />
           </div>
         </div>
       )}

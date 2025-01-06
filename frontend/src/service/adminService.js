@@ -346,7 +346,6 @@ export const addTour = createAsyncThunk(
           }
         }
       )
-      console.log('data', data)
       return response.data
     } catch (error) {
       return thunkAPI.rejectWithValue(

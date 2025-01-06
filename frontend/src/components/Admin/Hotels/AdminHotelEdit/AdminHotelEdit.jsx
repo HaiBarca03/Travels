@@ -1,5 +1,14 @@
 import React, { useEffect } from 'react'
-import { Button, Form, Input, InputNumber, Modal, Select, Upload } from 'antd'
+import {
+  Button,
+  Form,
+  Image,
+  Input,
+  InputNumber,
+  Modal,
+  Select,
+  Upload
+} from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
 import { getHotelDetail } from '../../../../service/hotelService'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,14 +18,26 @@ const { Option } = Select
 const EditHotel = ({ visible, onCancel, onSubmit, id }) => {
   const [form] = Form.useForm()
   const dispatch = useDispatch()
-  const { hotelDetail } = useSelector((state) => state.hotelDetail)
+  const { hotelDetail } = useSelector((state) => state.hotel)
   console.log('hotelDetail', hotelDetail)
-  console.log('id', id)
 
   useEffect(() => {
     dispatch(getHotelDetail(id))
   }, [dispatch, id])
-
+  useEffect(() => {
+    if (hotelDetail) {
+      form.setFieldsValue({
+        name: hotelDetail.name,
+        address: hotelDetail.address,
+        price: hotelDetail.price,
+        rating: hotelDetail.rating,
+        type: hotelDetail.type,
+        description: hotelDetail.description,
+        amenities: hotelDetail.amenities || [],
+        images: hotelDetail.images || []
+      })
+    }
+  }, [hotelDetail, form])
   return (
     <Modal title="Edit Hotel" open={visible} onCancel={onCancel} footer={null}>
       <Form
@@ -29,6 +50,7 @@ const EditHotel = ({ visible, onCancel, onSubmit, id }) => {
           price: hotelDetail?.price,
           rating: hotelDetail?.rating,
           type: hotelDetail?.type,
+          description: hotelDetail.description,
           amenities: hotelDetail?.amenities || [],
           images: hotelDetail?.images || []
         }}
@@ -71,10 +93,24 @@ const EditHotel = ({ visible, onCancel, onSubmit, id }) => {
             <Option value="Homestay">Homestay</Option>
           </Select>
         </Form.Item>
+        <Form.Item
+          name="description"
+          label="Mo ta"
+          rules={[{ required: true, message: 'Please enter the description' }]}
+        >
+          <Input />
+        </Form.Item>
         <Form.Item name="amenities" label="Amenities">
           <Select mode="tags" style={{ width: '100%' }} />
         </Form.Item>
         <Form.Item name="images" label="Images">
+          {hotelDetail?.images?.map((image, index) => (
+            <Image
+              key={index}
+              src={image?.url}
+              style={{ width: 100, height: 100 }}
+            />
+          ))}
           <Upload listType="picture-card" beforeUpload={() => false}>
             <div>
               <PlusOutlined />

@@ -16,7 +16,6 @@ const RestaurantFrame = ({ data }) => {
   const navigate = useNavigate()
   const { restaurantDetail } = useSelector((state) => state.restaurant)
   const { user, favoritesUser } = useSelector((state) => state.user)
-  console.log('user:', user)
   const [favorites, setFavorites] = useState([])
 
   const listFavoritesRestaurant = favoritesUser?.favorite?.list_restaurant || []

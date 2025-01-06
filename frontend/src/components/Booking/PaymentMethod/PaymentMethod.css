@@ -1,0 +1,47 @@
+.payment-method-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.payment-method-label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.payment-method-radio-group {
+  margin-bottom: 15px;
+}
+
+.payment-method-radio {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.payment-method-collapse {
+  margin-top: 15px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #dcdcdc;
+}
+
+.payment-method-collapse-panel {
+  margin: 0;
+  padding: 10px;
+  background-color: #fafafa;
+}
+
+.payment-method-collapse-panel p {
+  font-size: 14px;
+}
+
+.payment-method-collapse-panel a {
+  color: #1890ff;
+  text-decoration: none;
+}
+
+.payment-method-collapse-panel a:hover {
+  text-decoration: underline;
+}

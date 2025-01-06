@@ -8,8 +8,17 @@ import {
   deleteHotel,
   updateHotel
 } from '../../../../service/adminService'
-import { Button, Form, Input, InputNumber, Modal, Select, Upload } from 'antd'
-import { PlusOutlined } from '@ant-design/icons'
+import {
+  Button,
+  Carousel,
+  Form,
+  Image,
+  Input,
+  InputNumber,
+  Modal,
+  Select,
+  Upload
+} from 'antd'
 import EditHotelForm from '../AdminHotelEdit/AdminHotelEdit'
 
 const AdminHotel = () => {
@@ -58,7 +67,6 @@ const AdminHotel = () => {
     setidSelectedHotel(id)
     setIsEditModalVisible(true)
   }
-  console.log('idSelectedHotel', idSelectedHotel)
   const handleSubmitEditHotel = (data) => {
     console.log('Updated Hotel Data:', { ...selectedHotel, ...data })
     setIsEditModalVisible(false)
@@ -90,7 +98,10 @@ const AdminHotel = () => {
     <div className="container mt-5">
       <h2 className="mb-4">Admin Hotel Management</h2>
 
-      <button className="btn btn-success mb-3" onClick={handleAddNewHotel}>
+      <button
+        className="btn btn-success mb-3 hotel-create-btn"
+        onClick={handleAddNewHotel}
+      >
         Add New Hotel
       </button>
 
@@ -106,32 +117,58 @@ const AdminHotel = () => {
         onSubmit={handleSubmitEditHotel}
         id={idSelectedHotel}
       />
-
       {selectedHotel && (
         <Modal
           title="Hotel Details"
           visible={isDetailModalVisible}
           onCancel={handleCloseDetailModal}
           footer={null}
+          className="hotel-detail-modal"
         >
-          <p>
-            <strong>Name:</strong> {selectedHotel.name}
-          </p>
-          <p>
-            <strong>Address:</strong> {selectedHotel.address}
-          </p>
-          <p>
-            <strong>Price:</strong> {selectedHotel.price} VND
-          </p>
-          <p>
-            <strong>Rating:</strong> {selectedHotel.rating} Stars
-          </p>
-          <p>
-            <strong>Type:</strong> {selectedHotel.type}
-          </p>
-          <p>
-            <strong>Amenities:</strong> {selectedHotel.amenities?.join(', ')}
-          </p>
+          <div className="hotel-detail-container">
+            <div className="hotel-detail-image">
+              <Carousel autoplay>
+                {selectedHotel.images?.map((image, index) => (
+                  <div key={index}>
+                    <Image
+                      src={image?.url}
+                      className="img-hotel-ad"
+                      alt={`Hotel Image ${index + 1}`}
+                    />
+                  </div>
+                ))}
+              </Carousel>
+            </div>
+
+            <div className="hotel-detail-content">
+              <p>
+                <strong>Name:</strong> {selectedHotel.name}
+              </p>
+              <p>
+                <strong>Address:</strong> {selectedHotel.address}
+              </p>
+              <p>
+                <strong>Price:</strong> {selectedHotel.price} VND
+              </p>
+              <p>
+                <strong>Rating:</strong> {selectedHotel.rating} Stars
+              </p>
+              <p>
+                <strong>Type:</strong> {selectedHotel.type}
+              </p>
+              <p>
+                <strong>Mo ta:</strong> {selectedHotel.description}
+              </p>
+              <p>
+                <strong>Amenities:</strong>
+                <ul className="amenities-list">
+                  {selectedHotel.amenities?.map((amenity, index) => (
+                    <li key={index}>{amenity}</li>
+                  ))}
+                </ul>
+              </p>
+            </div>
+          </div>
         </Modal>
       )}
 
@@ -156,24 +193,24 @@ const AdminHotel = () => {
               <td>{hotel.rating} Stars</td>
               <td>{hotel.type}</td>
               <td>{hotel.amenities.join(', ')}</td>
-              <td>
+              <td className="action-btn-hotel">
                 <button
                   className="btn btn-primary"
                   onClick={() => handleViewDetails(hotel)}
                 >
-                  View Details
+                  Xem
                 </button>
                 <button
                   className="btn btn-warning"
                   onClick={() => handleEdit(hotel._id)}
                 >
-                  Edit
+                  Sửa
                 </button>
                 <button
                   className="btn btn-danger"
                   onClick={() => handleDelete(hotel._id)}
                 >
-                  Delete
+                  Xoá
                 </button>
               </td>
             </tr>

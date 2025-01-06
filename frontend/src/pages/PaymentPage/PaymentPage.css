@@ -1,0 +1,109 @@
+.payment-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.payment-content {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.left-section {
+  flex: 6;
+  margin-right: 20px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.right-section {
+  flex: 4;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tour-info,
+.group-info,
+.payment-info {
+  margin-bottom: 20px;
+}
+
+.user-info-payment h2 {
+  text-align: center;
+  color: #333;
+}
+
+.user-info-payment p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.user-info-payment strong {
+  color: #000;
+}
+
+.ant-table {
+  margin-top: 10px;
+  background-color: #fff;
+}
+
+.ant-table-thead > tr > th {
+  background-color: #fafafa;
+  text-align: left;
+}
+
+/* .tourist-payment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.tourist-payment img {
+  width: 50%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.tourist-content {
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tourist-content h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.tourist-content p {
+  margin: 5px 0;
+  line-height: 1.6;
+  color: #555;
+}
+
+.tourist-content .description {
+  font-style: italic;
+  color: #777;
+}
+
+.tourist-content strong {
+  color: #333;
+}
+
+.tourist-content .ant-rate {
+  margin-top: 10px;
+} */

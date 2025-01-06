@@ -1,10 +1,17 @@
 import AdminPage from '../pages/AdminPage/AdminPage'
+import BookedPage from '../pages/BookedPage/BookedPage'
+import HotelBooking from '../pages/BookingPage/HotelBooking/HotelBooking'
+import RestaurantBooking from '../pages/BookingPage/RestaurantBooking/RestaurantBooking'
+import TourBooking from '../pages/BookingPage/TourBooking/TourBooking'
+import TouristBooking from '../pages/BookingPage/TouristBooking/TouristBooking'
 import HomePage from '../pages/HomePage/HomePage'
 import HotelDetail from '../pages/HotelDetail/HotelDetail'
 import HotelPage from '../pages/HotelPage/HotelPage'
 import LocationPage from '../pages/LocationPage/LocationPage'
 import LoginPage from '../pages/LoginPage/LoginPage'
 import NotPoundPage from '../pages/NotPoundPage/NotPoundPage'
+import OrderPage from '../pages/OrderPage/OrderPage'
+import PaymentPage from '../pages/PaymentPage/PaymentPage'
 import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import RestaurantDetail from '../pages/RestaurantDetail/RestaurantDetail'
 import RestaurantPage from '../pages/RestaurantPage/RestaurantPage'
@@ -88,6 +95,31 @@ export const routes = [
     isShowHeader: true
   },
   {
+    path: '/tour/booking',
+    page: TourBooking,
+    isShowHeader: true
+  },
+  {
+    path: '/tourist/booking',
+    page: TouristBooking,
+    isShowHeader: true
+  },
+  {
+    path: '/hotel/booking',
+    page: HotelBooking,
+    isShowHeader: true
+  },
+  {
+    path: '/restaurant/booking',
+    page: RestaurantBooking,
+    isShowHeader: true
+  },
+  {
+    path: '/payment',
+    page: PaymentPage,
+    isShowHeader: true
+  },
+  {
     path: '/login',
     page: LoginPage,
     isShowHeader: false
@@ -96,6 +128,16 @@ export const routes = [
     path: '/register',
     page: SignUpPage,
     isShowHeader: false
+  },
+  {
+    path: '/order',
+    page: OrderPage,
+    isShowHeader: true
+  },
+  {
+    path: '/booked',
+    page: BookedPage,
+    isShowHeader: true
   },
   {
     path: '*',

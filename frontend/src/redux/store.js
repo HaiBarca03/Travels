@@ -12,33 +12,41 @@ import adminGetAllUser from './reducer/admin/adminUserSlice'
 import adminGetLocal from './reducer/admin/adminLocalSlice'
 import adminHotel from './reducer/admin/adminHotel'
 import tourReducer from './reducer/tour/tourPlace'
-
+import bookingReducer from './reducer/booking/bookingSlice'
+import paymentReducer from './reducer/payment/paymentSlice'
+import feedbackReducer from './reducer/feedback/feedbackSlice'
 const userPersistConfig = {
   key: 'user',
   storage
 }
-// const localPersistConfig = {
-//     key: 'local',
-//     storage,
-// }
 
 const persistedUser = persistReducer(userPersistConfig, userReducer)
-// const persistedLocal = persistReducer(localPersistConfig, localReducer)
 
 export const store = configureStore({
   reducer: {
+    // user
     user: persistedUser,
+    // local
     local: localReducer,
     localTourist: touristReducer,
+    // hotel
     hotel: hotelReducer,
     hotelByLocal: hotelByLocalReducer,
+    // restaurant
     restaurant: restaurantReducer,
     restaurantByLocal: restaurantByLocalReducer,
+    // tour
     tour: tourReducer,
     //admin
     adminGetUser: adminGetAllUser,
     adminGetLocal: adminGetLocal,
-    adminHotel: adminHotel
+    adminHotel: adminHotel,
+    // booking
+    booking: bookingReducer,
+    // payment
+    payment: paymentReducer,
+    // feedback
+    feedback: feedbackReducer
   }
 })
 

@@ -1,0 +1,46 @@
+.tour-booking {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+  padding: 20px;
+}
+.user-info {
+  display: flex;
+  gap: 20px;
+}
+
+.user-info__left,
+.user-info__right {
+  flex: 1;
+}
+.btn-count-quntity {
+  width: 30px;
+}
+.frame-info {
+  display: flex;
+  gap: 20px;
+}
+.tour-booking__left {
+  width: 60%;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+.tour-booking__right {
+  width: 40%;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.tour-booking__right h2 {
+  margin-bottom: 20px;
+}
+
+.tour-booking__right p {
+  margin: 8px 0;
+}

@@ -24,11 +24,12 @@ import {
   updateRes
 } from '../../../../service/adminService'
 import { UploadOutlined } from '@ant-design/icons'
+import './AdminRestaurant.css'
 
 const AdminRestaurant = () => {
   const dispatch = useDispatch()
-  const { allRestaurant, restaurantById } = useSelector(
-    (state) => state.allrestaurant
+  const { allRestaurant, restaurantDetail } = useSelector(
+    (state) => state.restaurant
   )
   const { locations, loading } = useSelector((state) => state.adminGetLocal)
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -84,8 +85,9 @@ const AdminRestaurant = () => {
     {
       title: 'Actions',
       key: 'actions',
+      className: 'action-res',
       render: (_, record) => (
-        <div>
+        <div className="action-res-btn">
           <Button type="link" onClick={() => handleView(record._id)}>
             {' '}
             <FaRegEye /> Chi tiết
@@ -116,7 +118,7 @@ const AdminRestaurant = () => {
   }
 
   const handleView = (restaurantId) => {
-    dispatch(getResById({ restaurantId }))
+    dispatch(getResById(restaurantId))
     setIsViewModalVisible(true)
   }
 
@@ -151,6 +153,7 @@ const AdminRestaurant = () => {
       newRestaurantData.append('name', values.name)
       newRestaurantData.append('address', values.address)
       newRestaurantData.append('type', values.type)
+      newRestaurantData.append('decription', values.decription)
       newRestaurantData.append('price', values.price)
       newRestaurantData.append('location', values.location)
 
@@ -183,17 +186,23 @@ const AdminRestaurant = () => {
   }
 
   return (
-    <div>
+    <div className="admin-restaurant-frame">
       <h1>Admin - Restaurant Management</h1>
-      <div>
+      <div className="create-res-btn">
         {' '}
-        <Button onClick={() => setIsModalVisible(true)}>Thêm nhà hàng</Button>
+        <Button
+          className="create-res-btn-btn"
+          onClick={() => setIsModalVisible(true)}
+        >
+          Thêm nhà hàng
+        </Button>
       </div>
       <Table
         dataSource={listRestaurant}
         columns={columns}
         rowKey="_id"
         bordered
+        className="table-res"
       />
 
       <Modal
@@ -201,34 +210,38 @@ const AdminRestaurant = () => {
         open={isViewModalVisible}
         onCancel={handleCloseModal}
         footer={null}
+        className="view-res-modal"
       >
-        {restaurantById && (
-          <div>
-            <h2>{restaurantById.name}</h2>
-            <p>
-              <strong>Address:</strong> {restaurantById.address}
-            </p>
-            <p>
-              <strong>Country:</strong> {restaurantById.location.provinceCity} -{' '}
-              {restaurantById.location.country}
-            </p>
-            <p>
-              <strong>Type:</strong> {restaurantById.type}
-            </p>
-            <p>
-              <strong>Price:</strong>{' '}
-              {`${restaurantById.price.toLocaleString()} VND`}
-            </p>
-            <p>
-              <strong>Rating:</strong> {restaurantById.rating}
-            </p>
-            <div>
-              <strong>Images:</strong>
-              <div style={{ display: 'flex', gap: '8px', marginTop: '10px' }}>
-                {restaurantById.images.map((img) => (
-                  <Image key={img.public_id} src={img.url} width={100} />
-                ))}
-              </div>
+        {restaurantDetail && (
+          <div className="modal-content">
+            <div className="modal-content-left">
+              <h2>{restaurantDetail.name}</h2>
+              <p>
+                <strong>Address:</strong> {restaurantDetail.address}
+              </p>
+              <p>
+                <strong>Country:</strong>{' '}
+                {restaurantDetail?.location?.provinceCity} -{' '}
+                {restaurantDetail?.location?.country}
+              </p>
+              <p>
+                <strong>Type:</strong> {restaurantDetail.type}
+              </p>
+              <p>
+                <strong>decription:</strong> {restaurantDetail.decription}
+              </p>
+              <p>
+                <strong>Price:</strong>{' '}
+                {`${restaurantDetail?.price?.toLocaleString()} VND`}
+              </p>
+              <p>
+                <strong>Rating:</strong> {restaurantDetail.rating}
+              </p>
+            </div>
+            <div className="modal-content-right">
+              {restaurantDetail?.images?.map((img, index) => (
+                <Image src={img?.url} width={300} />
+              ))}
             </div>
           </div>
         )}
@@ -239,6 +252,7 @@ const AdminRestaurant = () => {
         open={isUpdateModalVisible}
         onCancel={() => setIsUpdateModalVisible(false)}
         onOk={handleUpdate}
+        className="update-res-modal"
       >
         <div>
           <label>Name:</label>
@@ -260,6 +274,16 @@ const AdminRestaurant = () => {
             value={updateFormData.type || ''}
             onChange={(e) =>
               setUpdateFormData({ ...updateFormData, type: e.target.value })
+            }
+          />
+          <label>Description:</label>
+          <Input
+            value={updateFormData.decription || ''}
+            onChange={(e) =>
+              setUpdateFormData({
+                ...updateFormData,
+                decription: e.target.value
+              })
             }
           />
           <label>Price:</label>
@@ -292,22 +316,21 @@ const AdminRestaurant = () => {
           </Upload>
 
           {updateFormData.images?.length > 0 && (
-            <div>
+            <div className="images-section">
               <strong>Current Images:</strong>
-              <div style={{ display: 'flex', gap: '8px' }}>
-                {updateFormData.images.map((img, index) => (
-                  <div key={index}>
-                    <Image src={img.url} width={100} />
-                    <Button
-                      onClick={() => handleImageDelete(img.public_id)}
-                      type="link"
-                      danger
-                    >
-                      <MdDeleteForever /> Xoá
-                    </Button>
-                  </div>
-                ))}
-              </div>
+              {updateFormData.images.map((img, index) => (
+                <div key={index} className="image-item">
+                  <Image src={img.url} width={100} />
+                  <Button
+                    onClick={() => handleImageDelete(img.public_id)}
+                    type="link"
+                    danger
+                    className="delete-image-button"
+                  >
+                    <MdDeleteForever /> Xoá
+                  </Button>
+                </div>
+              ))}
             </div>
           )}
         </div>
@@ -340,6 +363,13 @@ const AdminRestaurant = () => {
             name="type"
             label="Loại Nhà Hàng"
             rules={[{ required: true, message: 'Vui lòng nhập loại nhà hàng' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="decription"
+            label="Mo ta"
+            rules={[{ required: true, message: 'Vui lòng nhập mo ta' }]}
           >
             <Input />
           </Form.Item>
