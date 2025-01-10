@@ -1,6 +1,6 @@
 .hotel-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   justify-content: center;
 }
@@ -38,4 +38,14 @@
 .ant-rate {
   font-size: 14px;
   color: #f5a623; /* Rating color */
+}
+.address-hotel-fr {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.name-hotel-fr {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

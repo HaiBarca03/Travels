@@ -1,17 +1,30 @@
 .restaurant-container {
-  display: flex;
+  max-width: 1200px;
+  margin: 10px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
   justify-content: center;
-  padding: 20px;
+  padding: 0 !important;
 }
 
-.restaurant-container .ant-card {
-  border-radius: 15px;
+.restaurant-card-ctn {
+  width: 288px !important;
+  max-width: 288px !important;
+  height: 425px;
+  max-height: 425px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  margin: 10px 0;
 }
 
 .restaurant-container .ant-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .restaurant-container img {
@@ -20,9 +33,13 @@
   border-radius: 10px;
 }
 
-h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
+.title_name-res {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 p {

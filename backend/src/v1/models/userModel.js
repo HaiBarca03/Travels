@@ -1,59 +1,62 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema(
+  {
     name: {
-        type: String,
-        required: true,
-        trim: true
+      type: String,
+      required: true,
+      trim: true
     },
     email: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true
+      type: String,
+      required: true,
+      unique: true,
+      trim: true
     },
     phone: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true
+      type: String,
+      required: true,
+      unique: true,
+      trim: true
     },
     password: {
-        type: String,
-        required: true
+      type: String,
+      required: true
     },
     role: {
-        type: String,
-        enum: ['customer', 'admin', 'vendor'],
-        default: 'customer',
+      type: String,
+      enum: ['customer', 'admin', 'vendor'],
+      default: 'customer'
     },
     addresses: {
-        type: String,
-        required: true,
-        trim: true
+      type: String,
+      required: true,
+      trim: true
     },
     avatar: {
-        public_id: {
-            type: String,
-        },
-        url: {
-            type: String,
-        },
+      public_id: {
+        type: String
+      },
+      url: {
+        type: String
+      }
     },
     booked: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Booking'
-        }
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Booking'
+      }
     ],
     favorite: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Favorites'
-        }
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Favorites'
+      }
     ]
-}, {
+  },
+  {
     timestamps: true
-});
+  }
+)
 
-module.exports = mongoose.model('Users', userSchema); 
+module.exports = mongoose.model('Users', userSchema)

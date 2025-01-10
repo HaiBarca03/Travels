@@ -1,20 +1,16 @@
 import React, { useEffect } from 'react'
 import './Deals-tour.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllTour } from '../../service/tourService'
+import { getAllTourHome } from '../../service/tourService'
 import TourFrame from '../Tour/TourFrame'
 
 const DealsTour = () => {
   const dispatch = useDispatch()
-  const { allTour } = useSelector((state) => state.tour)
+  const { allTourHome } = useSelector((state) => state.tour)
   useEffect(() => {
-    dispatch(getAllTour())
+    dispatch(getAllTourHome())
   }, [dispatch])
-  return (
-    <div className="tour-deals">
-      <TourFrame data={allTour} />
-    </div>
-  )
+  return <TourFrame data={allTourHome} />
 }
 
 export default DealsTour

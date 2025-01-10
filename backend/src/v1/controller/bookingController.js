@@ -255,34 +255,57 @@ const cancelBooking = async (req, res) => {
 const deleteBookingById = async (req, res) => {
   try {
     const bookingId = req.params.bookingId
-    const booking = await bookingModel.findById(bookingId)
 
-    if (!booking) {
+    const booking = await bookingModel.aggregate([
+      { $match: { _id: mongoose.Types.ObjectId(bookingId) } },
+      { $limit: 1 }
+    ])
+
+    if (!booking || booking.length === 0) {
       return res.status(404).json({ message: 'Booking not found' })
     }
 
-    if (booking.tour_id) {
-      await tourModel.findByIdAndUpdate(booking.tour_id, {
-        $pull: { bookings: bookingId }
-      })
-    }
-    if (booking.tourist_id) {
-      await touristAttractionModel.findByIdAndUpdate(booking.tourist_id, {
-        $pull: { bookings: bookingId }
-      })
-    }
-    if (booking.restaurant_id) {
-      await restaurantModel.findByIdAndUpdate(booking.restaurant_id, {
-        $pull: { bookings: bookingId }
-      })
-    }
-    if (booking.hotel_id) {
-      await accommodationsModel.findByIdAndUpdate(booking.hotel_id, {
-        $pull: { bookings: bookingId }
-      })
+    const updates = []
+
+    if (booking[0].tour_id) {
+      updates.push(
+        tourModel.updateOne(
+          { _id: mongoose.Types.ObjectId(booking[0].tour_id) },
+          { $pull: { bookings: mongoose.Types.ObjectId(bookingId) } }
+        )
+      )
     }
 
-    await bookingModel.findByIdAndDelete(bookingId)
+    if (booking[0].tourist_id) {
+      updates.push(
+        touristAttractionModel.updateOne(
+          { _id: mongoose.Types.ObjectId(booking[0].tourist_id) },
+          { $pull: { bookings: mongoose.Types.ObjectId(bookingId) } }
+        )
+      )
+    }
+
+    if (booking[0].restaurant_id) {
+      updates.push(
+        restaurantModel.updateOne(
+          { _id: mongoose.Types.ObjectId(booking[0].restaurant_id) },
+          { $pull: { bookings: mongoose.Types.ObjectId(bookingId) } }
+        )
+      )
+    }
+
+    if (booking[0].hotel_id) {
+      updates.push(
+        accommodationsModel.updateOne(
+          { _id: mongoose.Types.ObjectId(booking[0].hotel_id) },
+          { $pull: { bookings: mongoose.Types.ObjectId(bookingId) } }
+        )
+      )
+    }
+
+    await Promise.all(updates)
+
+    await bookingModel.deleteOne({ _id: mongoose.Types.ObjectId(bookingId) })
 
     res.status(200).json({
       message: 'Booking deleted successfully'

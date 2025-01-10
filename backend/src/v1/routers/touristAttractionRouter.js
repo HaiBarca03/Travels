@@ -5,7 +5,8 @@ const {
   getAllTouristAttractions,
   getTouristAttractionById,
   updateTouristAttraction,
-  deleteTouristAttraction
+  deleteTouristAttraction,
+  getAllTouristAttractionsHome
 } = require('../controller/touristAttractionController')
 const { isAdmin } = require('../middleware/auth')
 const { uploadImages } = require('../utils/uploadCloudinary')
@@ -22,6 +23,10 @@ touristAttractionRouter.get(
   getTouristAttractionsByLocation
 )
 touristAttractionRouter.get('/get-all-tourist', getAllTouristAttractions)
+touristAttractionRouter.get(
+  '/get-all-tourist-home',
+  getAllTouristAttractionsHome
+)
 touristAttractionRouter.get('/get-detail-tourist/:id', getTouristAttractionById)
 touristAttractionRouter.put(
   '/update-tourist/:touristAttractionId',

@@ -9,7 +9,7 @@ const TouristDestinationDetail = () => {
   const navigate = useNavigate()
   if (!state?.toursDetail) {
     return (
-      <div className="tourist-container">
+      <div className="tourist-container-dt">
         <p>Không tìm thấy thông tin điểm du lịch.</p>
         <Button onClick={() => navigate(-1)}>Quay lại</Button>
       </div>
@@ -38,55 +38,62 @@ const TouristDestinationDetail = () => {
   } = state?.toursDetail.data
 
   return (
-    <div className="tourist-container">
-      <Card className="tourist-card">
-        <div className="tourist-content">
-          <div className="tourist-slider">
-            <Carousel autoplay>
-              {images.map((image) => (
-                <div key={image._id}>
-                  <img src={image.url} alt={name} className="tourist-image" />
-                </div>
-              ))}
-            </Carousel>
-          </div>
-
-          {/* Information section */}
-          <div className="tourist-detail">
-            <div className="tourist-left">
-              <h2>{name}</h2>
-              <p>{description}</p>
-              <p>
-                <strong>Địa chỉ:</strong> {location.provinceCity},{' '}
-                {location.country}
-              </p>
-              <p>
-                <strong>Hoạt động:</strong> {activities.join(', ')}
-              </p>
-              <p>
-                <strong>Giá:</strong> {price} VND
-              </p>
-              <div className="tourist-rating">
-                <Rate disabled defaultValue={rating} />
-                <span>{rating} sao</span>
+    <Card className="tourist-card">
+      <div className="tourist-container-dt">
+        <div className="tourist-card">
+          <div className="tourist-content">
+            <div className="tourist-slider">
+              <Carousel autoplay>
+                {images.map((image) => (
+                  <div key={image._id}>
+                    <img src={image.url} alt={name} className="tourist-image" />
+                  </div>
+                ))}
+              </Carousel>
+              <div className="tourist-dt-info">
+                <p>
+                  <strong>Hoạt động:</strong> {activities.join(', ')}
+                </p>
+                <p>{description}</p>
               </div>
             </div>
 
-            {/* Sidebar */}
-            <div className="tourist-sidebar">
-              <Button
-                type="primary"
-                className="tourist-book-button"
-                onClick={() => handelBooking(_id)}
-              >
-                Đặt vé
-              </Button>
+            <div className="tourist-detail">
+              <div className="tourist-left">
+                <h2>{name}</h2>
+                <p>
+                  <strong>Địa chỉ:</strong> {location.provinceCity},{' '}
+                  {location.country}
+                </p>
+                <p className="price-tourist-dt">
+                  <strong>Giá:</strong> {price} VND
+                </p>
+                <div className="tourist-rating">
+                  {rating}/5
+                  <Rate
+                    className="rate_start-dt"
+                    disabled
+                    defaultValue={rating}
+                  />
+                </div>
+              </div>
+
+              <div className="tourist-sidebar">
+                <Button
+                  type="primary"
+                  className="tourist-book-button"
+                  onClick={() => handelBooking(_id)}
+                >
+                  Đặt vé
+                </Button>
+              </div>
             </div>
           </div>
         </div>
-        <FeedbackSection data={{ tourist_id: _id }} />
-      </Card>
-    </div>
+      </div>
+
+      <FeedbackSection data={{ tourist_id: _id }} />
+    </Card>
   )
 }
 

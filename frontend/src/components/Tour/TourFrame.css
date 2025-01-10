@@ -1,16 +1,14 @@
-/* Container for all tour cards */
+p {
+  margin: 0;
+  padding: 0;
+}
 .tour-deals {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
-  background-color: #f8f8f8;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
-/* Individual tour card styling */
 .tour-deals-card {
-  width: 300px;
+  width: 288px;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
@@ -20,15 +18,15 @@
   cursor: pointer;
 }
 
-/* Hover effect for each card */
 .tour-deals-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Header section with image and timer */
 .tour-deals-header {
   position: relative;
+  max-height: 206px;
+  height: 206px;
 }
 
 .tour-deals-image {
@@ -48,9 +46,10 @@
   font-size: 14px;
 }
 
-/* Body section containing details about the tour */
 .tour-deals-body {
   padding: 15px;
+  height: 152px;
+  max-height: 152px;
 }
 
 .tour-deals-title {
@@ -67,35 +66,36 @@
 }
 
 .tour-deals-place {
-  display: inline-block;
   margin-right: 5px;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .tour-deals-departure,
 .tour-deals-date,
 .tour-deals-duration,
 .tour-deals-seats {
-  font-size: 14px;
-  margin-bottom: 8px;
+  font-size: 13px;
 }
 
 .tour-deals-departure span,
 .tour-deals-date span {
   font-weight: bold;
 }
-
-/* Price section styling */
+.tour-deals-price {
+  display: flex;
+  justify-content: space-between;
+}
 .tour-deals-price {
   margin-top: 10px;
 }
 
 .tour-deals-price-new {
-  font-size: 20px;
-  color: #e74c3c;
+  font-size: 17px;
+  color: #0396ff;
   font-weight: bold;
 }
 
-/* Footer section with the booking button */
 .tour-deals-footer {
   padding: 10px 15px;
   background-color: #f8f8f8;

@@ -13,6 +13,7 @@ import User from '../../components/Admin/Users/AdminUser/AdminUser'
 import AdminLocation from '../../components/Admin/Locations/AdminLocation/AdminLocation'
 import AdminRestaurant from '../../components/Admin/Restaurants/AdminRestaurant/AdminRestaurant'
 import AdminHotel from '../../components/Admin/Hotels/AdminHotel/AdminHotel'
+import AdminTourist from '../../components/Admin/Tourist/AdminTourist/AdminTourist'
 
 const { Header, Sider, Content } = Layout
 const { Title } = Typography
@@ -29,6 +30,8 @@ const AdminPage = () => {
         return <User />
       case '3':
         return <AdminTour />
+      case '8':
+        return <AdminTourist />
       case '4':
         return <AdminLocation />
       case '5':
@@ -72,6 +75,9 @@ const AdminPage = () => {
           </Menu.Item>
           <Menu.Item key="3" icon={<FileOutlined />}>
             Tour
+          </Menu.Item>
+          <Menu.Item key="8" icon={<FileOutlined />}>
+            Tourist
           </Menu.Item>
           <Menu.Item key="4" icon={<BarChartOutlined />}>
             Location

@@ -62,6 +62,7 @@ const RestaurantFrame = ({ data }) => {
           const isFavorite = favorites.includes(restaurantData._id)
           return (
             <Card
+              className="restaurant-card-ctn"
               key={restaurantData._id}
               hoverable
               style={{ width: 300, position: 'relative' }}
@@ -90,7 +91,7 @@ const RestaurantFrame = ({ data }) => {
               >
                 {isFavorite ? <HeartFilled /> : <HeartOutlined />}
               </div>
-              <h3>{restaurantData.name}</h3>
+              <h3 className="title_name-res">{restaurantData.name}</h3>
               <p>{restaurantData.address}</p>
               <p>{restaurantData.location?.provinceCity}</p>
               <p>

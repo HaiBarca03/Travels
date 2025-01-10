@@ -42,9 +42,9 @@ const LoginPage = () => {
             <h2>Đăng nhập</h2>
           </div>
           {error && <p className="error">{error}</p>}
-          <div className="user">
+          <div className="pw">
             <input
-              id="user"
+              id="pw"
               type="text"
               placeholder="Tên đăng nhập"
               value={email}

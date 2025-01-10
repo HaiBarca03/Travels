@@ -1,0 +1,12 @@
+.search-page-tourist {
+  display: grid;
+  grid-template-columns: (4, 1fr);
+  width: 1200px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.search-page-tourist-title {
+  text-align: center;
+  font-size: 18px;
+  margin: 10px 0;
+}

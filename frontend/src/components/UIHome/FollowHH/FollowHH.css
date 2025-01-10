@@ -1,0 +1,44 @@
+.frame_follow-hh {
+  text-align: center;
+  width: 1200px;
+  margin: 0 auto;
+  background-color: #0396ff;
+  border-radius: 25px;
+}
+.follow-hh-content {
+  padding: 30px;
+}
+.frame_follow-hh h2 {
+  font-size: 35px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  margin-bottom: 20px;
+}
+.frame_follow-hh h4 {
+  font-size: 17px;
+  font-weight: 600;
+  width: 65%;
+  margin: 0 auto;
+  color: #fff;
+}
+.input_submit-fb {
+  margin-top: 40px;
+}
+.btn_submit-follow {
+  width: 100px;
+  background-color: red;
+  color: #fff;
+  font-weight: bold;
+  padding: 20px;
+  border-radius: 10px;
+}
+.input_submit-fb input {
+  padding: 10px;
+  border-radius: 20px;
+}
+.btn_submit-follow:hover {
+  background-color: chartreuse !important;
+  color: red !important;
+  border: #fff;
+}

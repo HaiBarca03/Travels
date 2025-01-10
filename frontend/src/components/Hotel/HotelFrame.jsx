@@ -28,8 +28,8 @@ const HotelFrame = ({ data }) => {
           cover={<img alt="hotel" src={hotelData?.images?.[0]?.url} />}
           onClick={() => handleHotel(hotelData._id)}
         >
-          <h3>{hotelData.name}</h3>
-          <p>{hotelData.address}</p>
+          <h3 className="name-hotel-fr">{hotelData.name}</h3>
+          <p className="address-hotel-fr">{hotelData.address}</p>
           <p>{hotelData.location?.provinceCity}</p>
           <p>
             <strong>Type:</strong> {hotelData.type}

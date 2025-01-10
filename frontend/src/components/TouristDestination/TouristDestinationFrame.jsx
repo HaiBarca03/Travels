@@ -9,7 +9,7 @@ const TouristDestinationFrame = ({ data }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { toursDetail } = useSelector((state) => state.localTourist)
-
+  console.log('data', data)
   if (!data || data.length === 0) {
     return (
       <div className="empty-container">
@@ -36,12 +36,13 @@ const TouristDestinationFrame = ({ data }) => {
           style={{ width: 300, marginBottom: '20px' }}
           cover={<img alt="destination" src={destination.images[0]?.url} />}
           onClick={() => handleTouris(destination._id)}
+          className="cart_tourist-frame"
         >
           <h3>{destination.name}</h3>
-          <p>
+          {/* <p>
             {destination.location?.provinceCity},{' '}
             {destination.location?.country}
-          </p>
+          </p> */}
           <p className="description">{destination.description}</p>
           <p>
             <strong>Price:</strong> {destination.price} VND

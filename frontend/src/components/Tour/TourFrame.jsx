@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import './TourFrame.css'
 import { useNavigate } from 'react-router-dom'
+import { Rate } from 'antd'
 
 const TourFrame = ({ data }) => {
   console.log(data)
@@ -32,7 +33,7 @@ const TourFrame = ({ data }) => {
             <div className="tour-deals-timer">Thời gian: {tour.time}</div>
           </div>
           <div className="tour-deals-body">
-            <h3 className="tour-deals-title">{tour.name}</h3>
+            {/* <h3 className="tour-deals-title">{tour.name}</h3> */}
             <div className="tour-deals-places">
               <p>
                 {tour.tour_places.map((place) => (
@@ -50,12 +51,15 @@ const TourFrame = ({ data }) => {
               <span>{new Date(tour.start_date).toLocaleDateString()}</span>
             </p>
             <p className="tour-deals-duration">Thời gian: {tour.time}</p>
-            <p className="tour-deals-seats">
+            {/* <p className="tour-deals-seats">
               Số chỗ còn nhận:{' '}
               {tour.max_participants - tour.current_participants}
-            </p>
+            </p> */}
             <div className="tour-deals-price">
-              <span className="tour-deals-price-new">{tour.price} VNĐ</span>
+              <div className="tour-rating">
+                <Rate allowHalf defaultValue={tour.rating} disabled />
+              </div>
+              <div className="tour-deals-price-new">{tour.price} VNĐ</div>
             </div>
           </div>
           <div className="tour-deals-footer">

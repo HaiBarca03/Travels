@@ -1,30 +1,42 @@
-import { useState, Fragment } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { routes } from './routes/routes'
+import { useState, Fragment, lazy, Suspense } from 'react'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate
+} from 'react-router-dom'
 import Default from './components/Default/Default'
+import { routes } from './routes/routes'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [user, setUser] = useState({ isAdmin: false })
 
   return (
-    <div>
-      <Router>
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          {routes.map((route, idx) => {
-            const Page = route.page
-            const isCheckAdmin = !route.isPrivate || user.isAdmin
-            const Layout = route.isShowHeader ? Default : Fragment
+          {routes.map(({ path, page: Page, isPrivate, isShowHeader }, idx) => {
+            const Layout = isShowHeader ? Default : Fragment
+
             return (
-              <Route key={idx} path={isCheckAdmin && route.path} element={
-                <Layout>
-                  <Page />
-                </Layout>
-              } />
+              <Route
+                key={idx}
+                path={path}
+                element={
+                  isPrivate && !user.isAdmin ? (
+                    <Navigate to="/unauthorized" replace />
+                  ) : (
+                    <Layout>
+                      <Page />
+                    </Layout>
+                  )
+                }
+              />
             )
           })}
         </Routes>
-      </Router>
-    </div>
+      </Suspense>
+    </Router>
   )
 }
 

@@ -1,4 +1,4 @@
-.hotel-container {
+.hotel-container-dt {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,4 +101,15 @@
   height: 40px;
   font-size: 16px;
   font-weight: bold;
+}
+.title_hotel-def {
+  text-align: center;
+  padding: 20px 0;
+  color: blue;
+  font-size: 19px;
+}
+.more-hotel-dt {
+  width: 1200px;
+  max-width: 1200px;
+  margin: 0 auto;
 }

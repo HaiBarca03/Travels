@@ -98,7 +98,42 @@ const getTouristAttractionsByLocation = async (req, res) => {
 
 const getAllTouristAttractions = async (req, res) => {
   try {
-    const resultPerPage = 10
+    const resultPerPage = 100
+
+    const features = new featuresApp(
+      TouristAttraction.find().populate('location', 'country provinceCity'),
+      req.query
+    )
+      .search()
+      .filter()
+      .pagination(resultPerPage)
+
+    const attractions = await features.query
+
+    if (!attractions.length) {
+      return res.status(404).json({
+        success: false,
+        message: 'No tourist attractions found'
+      })
+    }
+
+    res.status(200).json({
+      success: true,
+      results: attractions.length,
+      data: attractions,
+      currentPage: req.query.page || 1,
+      totalTours: await TouristAttraction.countDocuments(),
+      message: 'Tourist attractions fetched successfully'
+    })
+  } catch (error) {
+    console.error('Error fetching all tourist attractions:', error)
+    res.status(500).json({ success: false, message: 'Server error' })
+  }
+}
+
+const getAllTouristAttractionsHome = async (req, res) => {
+  try {
+    const resultPerPage = 4
 
     const features = new featuresApp(
       TouristAttraction.find().populate('location', 'country provinceCity'),
@@ -241,7 +276,7 @@ const deleteTouristAttraction = async (req, res) => {
       }
     }
 
-    await attraction.remove()
+    await attraction.deleteOne()
 
     res.status(200).json({
       success: true,
@@ -259,5 +294,6 @@ module.exports = {
   getAllTouristAttractions,
   getTouristAttractionById,
   updateTouristAttraction,
-  deleteTouristAttraction
+  deleteTouristAttraction,
+  getAllTouristAttractionsHome
 }

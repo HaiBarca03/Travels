@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+import '../TouristSearch/TouristSearch.css'
 import RestaurantFrame from '../../../components/Restaurant/RestaurantFrame'
 
 const RestaurantSearch = () => {
@@ -10,7 +11,8 @@ const RestaurantSearch = () => {
   console.log('Search Data:', searchData)
 
   return (
-    <div>
+    <div className="search-page-tourist">
+      <h3 className="search-page-tourist-title">Kết quả tìm kiếm nhà hàng</h3>
       {searchData.length > 0 ? (
         <RestaurantFrame data={searchData} />
       ) : (

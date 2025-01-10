@@ -379,3 +379,80 @@ export const deleteTour = createAsyncThunk(
     }
   }
 )
+
+export const updateTouristAttraction = createAsyncThunk(
+  'tourist/updateTouristAttraction',
+  async ({ touristAttractionId, data }, thunkAPI) => {
+    try {
+      const token = Cookies.get('token')
+      if (!token) {
+        throw new Error('Token not found')
+      }
+      const response = await axiosJWT.put(
+        `http://localhost:4000/api/tourist-attraction/update-tourist/${touristAttractionId}`,
+        data,
+        {
+          headers: {
+            token: `Bearer ${Cookies.get('token')}`
+          }
+        }
+      )
+      return response.data
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response?.data || 'Something went wrong'
+      )
+    }
+  }
+)
+
+export const addTourist = createAsyncThunk(
+  'tourist/addTourist',
+  async ({ data }, thunkAPI) => {
+    try {
+      const token = Cookies.get('token')
+      if (!token) {
+        throw new Error('Token not found')
+      }
+      const response = await axiosJWT.post(
+        `http://localhost:4000/api/tourist-attraction/add-tourist`,
+        data,
+        {
+          headers: {
+            token: `Bearer ${Cookies.get('token')}`
+          }
+        }
+      )
+      return response.data
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response?.data || 'Something went wrong'
+      )
+    }
+  }
+)
+
+export const deleteTourist = createAsyncThunk(
+  'tourist/deleteTourist',
+  async ({ id }, thunkAPI) => {
+    try {
+      const token = Cookies.get('token')
+      if (!token) {
+        throw new Error('Token not found')
+      }
+      const response = await axiosJWT.delete(
+        `http://localhost:4000/api/tourist-attraction/delete-tourist/${id}`,
+        {
+          headers: {
+            token: `Bearer ${Cookies.get('token')}`
+          }
+        }
+      )
+      return response.data
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response?.data || 'Something went wrong'
+      )
+    }
+  }
+)

@@ -20,7 +20,12 @@
   padding: 12px;
   text-align: center;
 }
-
+.nam_table-tour-ad {
+  width: 400px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .tour-admin-table th {
   background-color: #007bff;
   color: white;

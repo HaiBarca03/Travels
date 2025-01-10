@@ -1,121 +1,121 @@
 .main_header {
-    background-color: #263f5a;
+  background-color: #145f94;
 }
 
 .top_header {
-    border-bottom: 1px solid #e7eaf3 !important;
+  border-bottom: 1px solid #e7eaf3 !important;
 }
 
 .main_header {
-    padding: 0 50px;
+  padding: 0 50px;
 }
 
 ul.list-inline {
-    display: flex;
-    justify-content: space-around;
-    font-weight: 500;
-    font-size: 11px;
+  display: flex;
+  justify-content: space-around;
+  font-weight: 500;
+  font-size: 11px;
 }
 
 .list-inline-item a {
-    color: #fff;
-    font-size: 13px;
+  color: #fff;
+  font-size: 13px;
 }
 
 .sign-up-in,
 .location {
-    align-items: center;
-    justify-content: center;
-    display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .info {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .login,
 .logout {
-    color: #fff;
-    font-weight: 700;
-    font-size: 16px;
-    margin-right: 15px;
-    cursor: pointer;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  margin-right: 15px;
+  cursor: pointer;
 }
 
 .username {
-    color: #fff;
-    font-weight: 700;
-    font-size: 16px;
-    cursor: pointer;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .register {
-    color: #fff;
-    font-weight: 700;
-    font-size: 16px;
-    cursor: pointer;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.login>span,
-.username>span,
-.register>span {
-    margin-left: 5px;
+.login > span,
+.username > span,
+.register > span {
+  margin-left: 5px;
 }
 
 .login:hover {
-    color: #ccc;
+  color: #ccc;
 }
 
 .register:hover {
-    color: #ccc;
+  color: #ccc;
 }
 
 .logo_left {
-    padding-left: 50px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    cursor: pointer;
+  padding-left: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
 }
 
 img.logo {
-    padding: 0;
-    width: 40px;
-    margin-right: 10px;
+  padding: 0;
+  width: 40px;
+  margin-right: 10px;
 }
 
 a.header-info__link {
-    color: #fff;
+  color: #fff;
 }
 
 span.navbar-brand__text {
-    color: #fff;
-    font-weight: bold;
-    text-align: center;
-    font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
 }
 
 ul.navbar-nav {
-    padding: 0 50px;
-    display: flex;
-    justify-content: space-around;
+  padding: 0 50px;
+  display: flex;
+  justify-content: space-around;
 }
 
 a.nav-link.header-nav-link {
-    font-weight: bold;
-    font-size: 17px;
-    color: #fff;
+  font-weight: bold;
+  font-size: 17px;
+  color: #fff;
 }
 
 .cart_booking {
-    align-items: center;
-    justify-content: center;
-    display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .img_cart-item {
-    color: #fff;
-    font-size: 30px;
+  color: #fff;
+  font-size: 30px;
 }

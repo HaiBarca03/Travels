@@ -1,11 +1,11 @@
-.tourist-container {
-  margin: 20px;
+.tourist-container-dt {
+  margin: 20px auto;
 }
 
 .tourist-card {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 1200px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -16,23 +16,25 @@
 }
 
 .tourist-slider {
-  width: 60%;
+  width: 70%;
 }
 
 .tourist-image {
   width: 100%;
-  height: 300px;
+  height: 350px;
   object-fit: cover;
 }
 
 .tourist-detail {
+  background-color: aliceblue;
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 25%;
 }
 
 .tourist-left {
   margin-bottom: 20px;
+  padding: 20px;
 }
 
 .tourist-left h2 {
@@ -41,9 +43,10 @@
   margin-bottom: 10px;
 }
 
-.tourist-left p {
-  font-size: 16px;
-  margin: 5px 0;
+.price-tourist-dt {
+  font-size: 17px;
+  color: red !important;
+  font-weight: bold;
 }
 
 .tourist-rating {
@@ -62,4 +65,7 @@
   font-size: 16px;
   padding: 10px;
   text-align: center;
+}
+.rate_start-dt {
+  padding-left: 10px;
 }

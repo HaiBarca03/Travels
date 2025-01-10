@@ -59,7 +59,7 @@ const AdminTour = () => {
       <table className="tour-admin-table">
         <thead>
           <tr>
-            <th>Name</th>
+            <th className="nam_table-tour-ad">Name</th>
             <th>Code</th>
             <th>Price (VND)</th>
             <th>Start Date</th>
@@ -84,7 +84,7 @@ const AdminTour = () => {
                   className="btn btn-view"
                   onClick={() => handleDetail(tour)}
                 >
-                  Xem Chi Tiết
+                  Chi Tiết
                 </button>
                 <button className="btn btn-edit">Sửa</button>
                 <button

@@ -48,7 +48,6 @@ const FeedbackSection = ({ data }) => {
   const handleDeleteComment = (commentId) => {
     let dataBody = {}
 
-    // Xử lý dựa trên ID của entity
     if (tour_id) {
       dataBody = { tour_id: tour_id, _id: commentId }
     } else if (tourist_id) {
@@ -230,9 +229,8 @@ const FeedbackSection = ({ data }) => {
 
   return (
     <div className="feedback-container">
-      <h2 className="feedback-header">Tour Feedback</h2>
+      <h2 className="feedback-header">Phản hồi - đánh giá</h2>
 
-      {/* Display Comments */}
       <div className="comments-list">
         {comments.map((comment) => (
           <div key={comment._id} className="comment-item">

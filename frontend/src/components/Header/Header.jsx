@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Col, Dropdown, Row, Space } from 'antd'
+import { Button, Col, Dropdown, message, Row, Space } from 'antd'
 import './Header.css'
 import {
   FacebookOutlined,
@@ -29,8 +29,8 @@ const Header = () => {
   const handleLogout = () => {
     dispatch(logoutUser())
     dispatch(HandleLogoutUser())
-    persistor.purge()
     navigate('/login')
+    persistor.purge()
   }
   const handleLogin = () => {
     navigate('/login')
@@ -62,10 +62,20 @@ const Header = () => {
   }
 
   const openCart = () => {
-    navigate('/order')
+    if (user?._id) {
+      navigate('/order')
+    } else {
+      message.info('Vui lòng đăng nhập trước khi vào giỏ hàng !!!')
+      navigate('/login')
+    }
   }
   const openBooked = () => {
-    navigate('/booked')
+    if (user?._id) {
+      navigate('/booked')
+    } else {
+      message.info('Vui lòng đăng nhập trước khi vào giỏ hàng !!!')
+      navigate('/login')
+    }
   }
   const items = [
     {

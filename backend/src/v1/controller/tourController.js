@@ -108,6 +108,29 @@ const getAllTours = async (req, res) => {
   }
 }
 
+const getAllToursHome = async (req, res) => {
+  try {
+    const resultPerPage = 4
+    const features = new featuresApp(Tour.find(), req.query)
+      .search()
+      .filter()
+      .pagination(resultPerPage)
+
+    const tours = await features.query.populate('tour_places')
+
+    res.status(200).json({
+      message: 'All tours retrieved successfully',
+      tours,
+      currentPage: req.query.page || 1,
+      totalTours: await Tour.countDocuments()
+    })
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: 'Error retrieving tours', error: error.message })
+  }
+}
+
 const updateTour = async (req, res) => {
   try {
     const { id } = req.params
@@ -201,5 +224,6 @@ module.exports = {
   getDetailTour,
   getAllTours,
   updateTour,
+  getAllToursHome,
   deleteTour
 }
